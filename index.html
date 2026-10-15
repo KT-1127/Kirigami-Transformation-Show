@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGT2Y7KLF3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TGT2Y7KLF3');
+  </script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>キリガミへんしんショー</title>
@@ -83,9 +92,13 @@ button{font:inherit;color:inherit}
 .seg button[aria-pressed="true"]{background:var(--kami);box-shadow:0 2px 5px rgba(0,0,0,.18);color:var(--shu)}
 
 /* ---------- スタート ---------- */
-.s-start{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:center}
-.start-panel{display:flex;flex-direction:column;gap:clamp(16px,2.4vw,30px);padding-left:clamp(0px,2vw,30px)}
-.lead{margin:0;font:700 clamp(16px,1.9vw,22px)/1.75 var(--f-ui);color:var(--kami);max-width:30em;text-wrap:pretty}
+.s-start{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:center;padding-top:clamp(14px,7vh,64px)}
+/* よこながで ひくい がめんでも はみでないように、たかさ（vh）でも おおきさを きめる */
+.start-panel{display:flex;flex-direction:column;gap:clamp(10px,min(2.4vw,2.6vh),30px);padding-left:clamp(0px,2vw,30px);max-height:100%;overflow:auto}
+.s-start .logo-xl{font-size:clamp(34px,min(7.2vw,10.5vh),104px)}
+.s-start .btn.xl{min-height:clamp(52px,9vh,84px);font-size:clamp(19px,min(2.8vw,4.2vh),34px)}
+.s-start .btn{min-height:clamp(48px,8vh,58px);font-size:clamp(16px,min(2vw,3.2vh),24px)}
+.lead{margin:0;font:700 clamp(14px,min(1.9vw,2.6vh),22px)/1.65 var(--f-ui);color:var(--kami);max-width:30em;text-wrap:pretty}
 .lead b{color:var(--yama);font-weight:900}
 .start-actions{display:flex;flex-wrap:wrap;gap:22px;align-items:center}
 .start-panel .fine{color:rgba(251,246,234,.78)}
@@ -99,15 +112,6 @@ button{font:inherit;color:inherit}
 .board-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .chip{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 16px 0 8px;border:0;border-radius:99px;background:var(--kami-2);font:700 clamp(15px,1.6vw,18px)/1 var(--f-ui);box-shadow:0 0 0 3px var(--kami),0 4px 8px rgba(8,10,40,.18);cursor:pointer}
 .chip-dot{width:32px;height:32px;border-radius:50%;background:var(--pc);box-shadow:0 0 0 3px var(--kami)}
-.today{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left;border:0;padding:14px 26px 16px;border-radius:6px;
-  background:var(--yama) var(--grain);box-shadow:0 0 0 4px var(--kami),0 8px 14px rgba(8,10,40,.25);
-  -webkit-mask:radial-gradient(circle 11px at 0 50%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 11px at 100% 50%,#0000 98%,#000) right/51% 100% no-repeat;
-  mask:radial-gradient(circle 11px at 0 50%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 11px at 100% 50%,#0000 98%,#000) right/51% 100% no-repeat}
-.today-tag{font:400 clamp(13px,1.4vw,15px)/1 var(--f-hand);background:var(--sumi);color:var(--yama);padding:6px 10px 7px;border-radius:4px;letter-spacing:.1em}
-.today-text{font:400 clamp(16px,1.9vw,21px)/1.35 var(--f-pop);text-wrap:balance}
-.today-state{font:700 clamp(13px,1.4vw,15px)/1.3 var(--f-ui);color:var(--sumi-2)}
-.today.is-done{background-color:var(--waka)}
-.today.is-done .today-state{color:var(--sumi);font-weight:900}
 .btn-show{width:100%;min-height:80px;font-size:clamp(22px,2.6vw,30px)}
 .tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .tile{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:12px;align-items:center;text-align:left;min-height:76px;border:0;padding:12px 14px;border-radius:10px;
@@ -143,6 +147,8 @@ button{font:inherit;color:inherit}
 .tk-text span{font:700 clamp(13px,1.3vw,15px)/1.45 var(--f-ui);color:var(--sumi-2)}
 .tk-stub{display:flex;align-items:center;gap:10px;padding:6px 16px 14px;font:700 13px/1.2 var(--f-ui);color:var(--sumi-2)}
 .tk-flag{position:absolute;top:-8px;right:14px;background:var(--shu);color:var(--kami);font:400 13px/1 var(--f-hand);padding:7px 10px 9px;border-radius:3px 3px 0 0;clip-path:polygon(0 0,100% 0,100% 100%,50% 82%,0 100%)}
+.tk-group{grid-column:1/-1;margin:4px 0 -8px;font:400 clamp(17px,1.9vw,22px)/1.3 var(--f-pop);display:flex;align-items:center;gap:10px}
+.tk-group::before{content:"";width:10px;height:26px;border-radius:3px;background:var(--shu)}
 .tag2{background:var(--sumi);color:var(--kami);border-radius:99px;padding:4px 10px;font:700 12px/1 var(--f-ui)}
 .medal{--m:#c98a52;display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--m);box-shadow:0 0 0 3px var(--kami),0 2px 4px rgba(0,0,0,.25);font:400 11px/1 var(--f-pop);color:var(--sumi);flex:none}
 .medal.m2{--m:#c6d0de}.medal.m3{--m:#f6c23e}
@@ -431,6 +437,7 @@ function initAudio(){
       actx = new (window.AudioContext || window.webkitAudioContext)();
       const n = actx.sampleRate * 0.4; noiseBuf = actx.createBuffer(1, n, actx.sampleRate);
       const d = noiseBuf.getChannelData(0); for(let i=0;i<n;i++) d[i] = Math.random()*2 - 1;
+      setTimeout(() => musicFor(view), 0);
     } catch(e){}
   }
   if(actx && actx.state === 'suspended') actx.resume();
@@ -471,34 +478,463 @@ const sfx = {
   chant: n => { if(actx && DB.settings.sfx) note(392 + n*24, actx.currentTime, .09, 'triangle', .06); },
   order: S(t => { note(660,t,.1,'triangle',.1); note(990,t+.1,.14,'triangle',.1); }),
   step: S(t => { noise(t,.05,.06,1400); note(210,t,.05,'triangle',.05,-40); }),
+  whistle: S(t => { note(2100,t,.22,'sine',.06); note(2250,t+.06,.2,'sine',.05); }),
+  swish: S(t => { noise(t,.12,.09,2500); note(620,t,.1,'triangle',.05,-300); }),
 };
-/* やさしいBGM（シンセ） */
+/* =====================================================================
+   おんがく：シンセで その ばで えんそうする きょく
+   1マス ＝ 16ぶおんぷ。きょくの step(マス, じかん, 1マスの ながさ, g) が おとを ならす
+   ===================================================================== */
+const MIDI = m => 440*Math.pow(2, (m - 69)/12);
+const NOTE_IDX = { C:0, D:2, E:4, F:5, G:7, A:9, B:11 };
+function nn(tk){
+  const m = /^([A-G])([#b]?)(\d)$/.exec(tk);
+  return m ? 12*(+m[3] + 1) + NOTE_IDX[m[1]] + (m[2] === '#' ? 1 : m[2] === 'b' ? -1 : 0) : null;
+}
+/* メロディの もじれつ → { at:{ マス:{ m, len } }, len }。「-」は のばす、「.」は やすみ。1こ ＝ unit マス */
+function mel(str, unit = 2){
+  const at = {}; let cur = null, i = 0;
+  for(const tk of str.trim().split(/\s+/)){
+    if(tk === '-'){ if(cur) cur.len += unit; }
+    else { cur = null; if(tk !== '.'){ cur = { m:nn(tk), len:unit }; at[i*unit] = cur; } }
+    i++;
+  }
+  return { at, len:i*unit };
+}
+const CHQ = { '':[0,4,7], m:[0,3,7], '7':[0,4,7,10], m7:[0,3,7,10], maj7:[0,4,7,11], '9':[0,4,7,10,14], sus4:[0,5,7], '6':[0,4,7,9], m6:[0,3,7,9], dim:[0,3,6] };
+const chdCache = {};
+function chd(name){
+  if(chdCache[name]) return chdCache[name];
+  const m = /^([A-G])([#b]?)(.*)$/.exec(name);
+  const r = (NOTE_IDX[m[1]] + (m[2] === '#' ? 1 : m[2] === 'b' ? -1 : 0) + 12) % 12;
+  return (chdCache[name] = { r, iv:CHQ[m[3]] || CHQ[''] });
+}
+/* lo から 1オクターブの なかに わおんを ならべる */
+function voicing(c, lo = 55){ return c.iv.map(i => { let n = c.r + i; while(n < lo) n += 12; while(n >= lo + 12) n -= 12; return n; }).sort((a, b) => a - b); }
+const bassN = c => { const n = 36 + c.r; return n > 44 ? n - 12 : n; };
+const fifthOf = b => b + 7 > 47 ? b - 5 : b + 7;
+
+let nzBuf = null;
+function makeIR(sec){
+  const n = Math.floor(actx.sampleRate*sec), b = actx.createBuffer(2, n, actx.sampleRate);
+  for(let c = 0; c < 2; c++){ const d = b.getChannelData(c); for(let i = 0; i < n; i++) d[i] = (Math.random()*2 - 1)*Math.pow(1 - i/n, 3); }
+  return b;
+}
+function route(node, o){
+  const I = BGM.inst; let last = node;
+  if(o.pan && actx.createStereoPanner){ const p = actx.createStereoPanner(); p.pan.value = o.pan; node.connect(p); last = p; }
+  last.connect(I.dry);
+  if(o.wet){ const w = actx.createGain(); w.gain.value = o.wet; last.connect(w); w.connect(I.wet); }
+}
+/* がっきの もと：o = { type, v, a, r, n（かさね）, det, cut, c0, ct, q, ft, pl（はじく）, s, dt, sl, slt, drop, vib, vr, wet, pan } */
+function tone(t, f, d, o = {}){
+  const I = BGM.inst; if(!I) return;
+  const n = o.n || 1, v = (o.v ?? .1)/Math.sqrt(n), a = o.a ?? .005, r = o.r ?? .08, end = t + d + r + .03;
+  const g = actx.createGain();
+  let dest = g;
+  if(o.cut){
+    const fl = actx.createBiquadFilter(); fl.type = o.ft || 'lowpass'; fl.Q.value = o.q ?? .9;
+    if(o.c0){ fl.frequency.setValueAtTime(o.c0, t); fl.frequency.exponentialRampToValueAtTime(o.cut, t + (o.ct ?? .12)); }
+    else fl.frequency.setValueAtTime(o.cut, t);
+    fl.connect(g); dest = fl;
+  }
+  for(let k = 0; k < n; k++){
+    const os = actx.createOscillator(); os.type = o.type || 'triangle';
+    if(n > 1) os.detune.setValueAtTime((k/(n - 1) - .5)*2*(o.det ?? 10), t);
+    if(o.sl){ os.frequency.setValueAtTime(f*Math.pow(2, o.sl/12), t); os.frequency.exponentialRampToValueAtTime(f, t + (o.slt ?? .05)); }
+    else os.frequency.setValueAtTime(f, t);
+    if(o.drop) os.frequency.exponentialRampToValueAtTime(Math.max(20, f*o.drop), t + (o.dropT ?? d));
+    if(o.vib && d > .2){
+      const l = actx.createOscillator(), lg = actx.createGain(); l.frequency.value = o.vr || 5.5;
+      lg.gain.setValueAtTime(0, t); lg.gain.linearRampToValueAtTime(f*o.vib*.01, t + Math.min(d, .3));
+      l.connect(lg); lg.connect(os.frequency); l.start(t); l.stop(end);
+    }
+    os.connect(dest); os.start(t); os.stop(end);
+  }
+  g.gain.setValueAtTime(.0001, t);
+  g.gain.exponentialRampToValueAtTime(v, t + a);
+  if(o.pl) g.gain.exponentialRampToValueAtTime(.0001, t + Math.max(a + .01, d));
+  else {
+    const dt = o.dt ?? .1, sus = o.s != null && a + dt < d ? Math.max(.0001, v*o.s) : v;
+    if(sus !== v) g.gain.exponentialRampToValueAtTime(sus, t + a + dt);
+    g.gain.setValueAtTime(sus, t + Math.max(a + .01, d));
+    g.gain.exponentialRampToValueAtTime(.0001, t + d + r);
+  }
+  route(g, o);
+}
+function nz(t, d, o = {}){
+  const I = BGM.inst; if(!I) return;
+  if(!nzBuf || nzBuf.sampleRate !== actx.sampleRate){
+    nzBuf = actx.createBuffer(1, actx.sampleRate, actx.sampleRate);
+    const x = nzBuf.getChannelData(0); for(let i = 0; i < x.length; i++) x[i] = Math.random()*2 - 1;
+  }
+  const s = actx.createBufferSource(); s.buffer = nzBuf; s.loop = true;
+  const fl = actx.createBiquadFilter(); fl.type = o.ft || 'highpass'; fl.Q.value = o.q ?? .8;
+  fl.frequency.setValueAtTime(o.f ?? 6000, t); if(o.f1) fl.frequency.exponentialRampToValueAtTime(o.f1, t + d);
+  const g = actx.createGain(), v = o.v ?? .1;
+  if(o.a){ g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(v, t + o.a); } else g.gain.setValueAtTime(v, t);
+  g.gain.exponentialRampToValueAtTime(.0001, t + d);
+  s.connect(fl); fl.connect(g); route(g, o);
+  s.start(t, Math.random()*.6); s.stop(t + d + .02);
+}
+/* たいこ */
+const DR = {
+  kick(t, v = 1){ tone(t, 155, .3, { type:'sine', v:.95*v, a:.002, pl:true, drop:.28, dropT:.12 }); nz(t, .018, { f:2500, v:.14*v }); },
+  snare(t, v = 1){ nz(t, .16, { ft:'bandpass', f:1900, q:.7, v:.34*v, wet:.12 }); tone(t, 195, .07, { type:'triangle', v:.24*v, pl:true, drop:.7 }); },
+  brush(t, v = 1){ nz(t, .12, { ft:'bandpass', f:3200, q:.6, v:.12*v, a:.01 }); },
+  clap(t, v = 1){ for(const k of [0, .01, .021]) nz(t + k, .022, { ft:'bandpass', f:1250, q:1.2, v:.3*v }); nz(t + .03, .16, { ft:'bandpass', f:1150, q:1, v:.24*v, wet:.25 }); },
+  hat(t, v = 1){ nz(t, .04, { f:8200, v:.1*v, pan:.15 }); },
+  ohat(t, v = 1){ nz(t, .22, { f:7200, v:.08*v, pan:-.1 }); },
+  shk(t, v = 1){ nz(t, .055, { ft:'bandpass', f:6200, q:1.4, v:.08*v, a:.01, pan:.3 }); },
+  crash(t, v = 1){ nz(t, 1.3, { f:4000, v:.11*v, wet:.3 }); },
+  tom(t, f = 140, v = 1){ tone(t, f, .26, { type:'sine', v:.5*v, pl:true, drop:.55 }); },
+  taiko(t, v = 1){ tone(t, 92, .5, { type:'sine', v:.9*v, pl:true, drop:.55, wet:.2 }); nz(t, .09, { ft:'lowpass', f:700, v:.32*v }); },
+  block(t, f = 880, v = 1){ tone(t, f, .06, { type:'sine', v:.22*v, pl:true }); },
+  kane(t, v = 1){ tone(t, 2350, .22, { type:'sine', v:.07*v, pl:true, wet:.25 }); tone(t, 3460, .14, { type:'sine', v:.045*v, pl:true }); },
+  riser(t, d, v = 1){ nz(t, d, { ft:'bandpass', f:500, f1:8000, q:2.2, v:.14*v, a:d*.92, wet:.3 }); },
+  hey(t, v = 1){ tone(t, 290, .17, { type:'sawtooth', n:3, det:30, cut:1050, ft:'bandpass', q:1.6, pl:true, drop:.72, v:.5*v, wet:.3 }); nz(t, .07, { ft:'bandpass', f:1700, q:1, v:.12*v }); },
+};
+/* がっき（m は MIDI ばんごう） */
+const IN = {
+  bass(t, m, d, v = 1){ tone(t, MIDI(m), d, { type:'sawtooth', v:.15*v, cut:420, c0:1500, ct:.09, q:3, r:.05, a:.004 }); tone(t, MIDI(m), d, { type:'sine', v:.16*v, a:.004, r:.05 }); },
+  fbass(t, m, d, v = 1){ tone(t, MIDI(m), d, { type:'sawtooth', v:.17*v, cut:500, c0:2600, ct:.06, q:5, pl:true, a:.003 }); tone(t, MIDI(m), d, { type:'sine', v:.16*v, pl:true, a:.003 }); },
+  tuba(t, m, d, v = 1){ tone(t, MIDI(m), d, { type:'sawtooth', v:.14*v, cut:520, c0:900, ct:.05, a:.02, r:.07 }); tone(t, MIDI(m), d, { type:'sine', v:.1*v, a:.02, r:.07 }); },
+  cbass(t, m, d, v = 1){ tone(t, MIDI(m), d, { type:'square', v:.075*v, a:.003, r:.02, cut:1800 }); },
+  pluck(t, m, d, v = 1, pan = 0){ tone(t, MIDI(m), d, { type:'triangle', v:.13*v, pl:true, a:.003, cut:3000, wet:.12, pan }); },
+  uke(t, m, d, v = 1){ tone(t, MIDI(m), d, { type:'sawtooth', v:.06*v, pl:true, a:.002, cut:2600, c0:4800, ct:.05, pan:-.25, wet:.1 }); },
+  pizz(t, m, d, v = 1){ tone(t, MIDI(m), Math.min(d, .2), { type:'triangle', v:.13*v, pl:true, a:.002, cut:2000, wet:.18 }); },
+  mar(t, m, d, v = 1){ const f = MIDI(m); tone(t, f, .45, { type:'sine', v:.2*v, pl:true, a:.002, wet:.15 }); tone(t, f*4, .07, { type:'sine', v:.06*v, pl:true, a:.002 }); },
+  bell(t, m, d, v = 1){ const f = MIDI(m); tone(t, f, .9, { type:'sine', v:.1*v, pl:true, a:.002, wet:.35, pan:.2 }); tone(t, f*2.76, .25, { type:'sine', v:.03*v, pl:true, a:.002, pan:.2 }); },
+  steel(t, m, d, v = 1){ const f = MIDI(m); tone(t, f, .55, { type:'sine', v:.16*v, pl:true, a:.004, sl:.25, slt:.04, wet:.2 }); tone(t, f*2, .3, { type:'sine', v:.06*v, pl:true, a:.004 }); tone(t, f*3.01, .15, { type:'sine', v:.025*v, pl:true, a:.004 }); },
+  lead(t, m, d, v = 1, pan = 0){ tone(t, MIDI(m), d, { type:'square', n:2, det:9, v:.075*v, a:.01, r:.08, cut:2600, vib:.5, wet:.22, pan }); },
+  chip(t, m, d, v = 1, pan = 0){ tone(t, MIDI(m), d*.9, { type:'square', v:.06*v, a:.003, r:.03, vib:.35, pan }); },
+  saw(t, m, d, v = 1){ tone(t, MIDI(m), d, { type:'sawtooth', n:3, det:14, v:.08*v, a:.008, r:.1, cut:3400, vib:.4, wet:.25 }); },
+  brass(t, m, d, v = 1){ tone(t, MIDI(m), d, { type:'sawtooth', n:2, det:7, v:.09*v, a:.03, s:.75, dt:.15, r:.12, cut:2600, c0:700, ct:.08, vib:.45, wet:.2 }); },
+  stab(t, ms, v = 1){ for(const m of ms) tone(t, MIDI(m), .2, { type:'sawtooth', n:2, det:10, v:.045*v, pl:true, a:.003, cut:700, c0:4200, ct:.14, wet:.18 }); },
+  pad(t, ms, d, v = 1){ for(const m of ms) tone(t, MIDI(m), d, { type:'sawtooth', n:2, det:12, v:.03*v, a:Math.min(.4, d*.4), r:.5, cut:1300, wet:.4 }); },
+  organ(t, ms, d, v = 1){ for(const m of ms){ tone(t, MIDI(m), d, { type:'square', v:.025*v, a:.005, r:.04, cut:2200 }); tone(t, MIDI(m + 12), d, { type:'sine', v:.02*v, a:.005, r:.04 }); } },
+  shami(t, m, d, v = 1){ tone(t, MIDI(m), .5, { type:'sawtooth', v:.12*v, pl:true, a:.002, cut:800, c0:4200, ct:.18, sl:.5, slt:.025, wet:.15 }); nz(t, .02, { ft:'bandpass', f:2600, v:.07*v }); },
+  flute(t, m, d, v = 1){ const f = MIDI(m); tone(t, f, d, { type:'sine', v:.12*v, a:.06, r:.12, vib:.8, vr:5, wet:.3, sl:-.4, slt:.08 }); tone(t, f*2, d, { type:'sine', v:.018*v, a:.06, r:.1 }); nz(t, Math.min(d, .5), { ft:'bandpass', f:f*2, q:3, v:.02*v, a:.04 }); },
+  twang(t, m, d, v = 1){ tone(t, MIDI(m), d, { type:'sawtooth', v:.08*v, a:.004, s:.45, dt:.25, r:.1, cut:2300, q:2, vib:.7, sl:-1, slt:.06, wet:.35 }); },
+};
+
+/* きょくを ならす しくみ */
+const SONGS = {};
 const BGM = {
-  on:false, next:0, step:0, tempo:112, timer:null,
-  song:null,
-  /* song を わたすと その きょくを ならす。at は きょくの なんびょうめ から はじめるか（拍と ずれないように） */
-  start(tempo = 112, song = null, at = 0){
-    this.stop(); if(!actx || !DB.settings.bgm) return;
-    this.tempo = tempo; this.song = song; this.on = true;
-    if(song){ const e = 60/tempo/2; this.step = Math.ceil(at/e - 1e-6); this.next = actx.currentTime + this.step*e - at; }
-    else { this.step = 0; this.next = actx.currentTime + 0.12; }
-    this.timer = setInterval(() => this.tick(), 30);
+  cur:null, song:null, g:null, bpm:112, step:0, next:0, base:0, timer:null, inst:null, master:null, rev:null,
+  bus(){
+    if(this.master && this.master.context === actx) return;
+    const comp = actx.createDynamicsCompressor();
+    comp.threshold.value = -16; comp.knee.value = 10; comp.ratio.value = 3.5; comp.attack.value = .004; comp.release.value = .2;
+    this.master = actx.createGain(); this.master.gain.value = .5;
+    this.master.connect(comp); comp.connect(actx.destination);
+    this.rev = actx.createConvolver(); this.rev.buffer = makeIR(1.8); this.rev.connect(this.master);
   },
-  stop(){ this.on = false; if(this.timer) clearInterval(this.timer); this.timer = null; },
+  /* o = { g, at:きょくの なんびょうめ から（time きょく）, step:なんマスめ から, delay, bpm } */
+  start(id, o = {}){
+    this.stop();
+    if(!actx || !DB.settings.bgm || !SONGS[id]) return;
+    this.bus();
+    const song = SONGS[id];
+    this.cur = id; this.song = song; this.g = o.g || null; this.bpm = o.bpm || song.bpm;
+    const dry = actx.createGain(), wet = actx.createGain(); dry.connect(this.master); wet.connect(this.rev);
+    dry.gain.value = wet.gain.value = song.gain || 1;   /* きょくごとの おおきさを そろえる */
+    this.inst = { dry, wet };
+    const delay = o.delay || 0;
+    if(song.time){
+      const at = o.at || 0; this.base = actx.currentTime + delay - at;
+      let s = 0; while(song.time(s, this.g) < at - 1e-6 && s < 1e5) s++;
+      this.step = s;
+    } else { this.step = o.step || 0; this.next = actx.currentTime + .05 + delay; }
+    this.timer = setInterval(() => this.tick(), 25);
+    this.tick();
+  },
+  stop(){
+    if(this.timer) clearInterval(this.timer); this.timer = null;
+    const I = this.inst; this.inst = null; this.cur = null; this.song = null;
+    if(I && actx){
+      const n = actx.currentTime;
+      for(const x of [I.dry, I.wet]){ try { x.gain.cancelScheduledValues(n); x.gain.setValueAtTime(x.gain.value, n); x.gain.linearRampToValueAtTime(0, n + .08); } catch(e){} }
+      setTimeout(() => { try { I.dry.disconnect(); I.wet.disconnect(); } catch(e){} }, 400);
+    }
+  },
+  ensure(id, delay = 0){ if(this.cur !== id) this.start(id, { delay }); },
   tick(){
-    if(!actx) return;
-    const spb = 60/this.tempo/2;
-    while(this.next < actx.currentTime + 0.12){ this.play(this.step, this.next); this.next += spb; this.step++; }
-  },
-  play(s, t){
-    if(this.song) return this.song(s, t);
-    const bar = Math.floor(s/8) % 4, i = s % 8, roots = [196, 174.6, 220, 164.8];
-    if(i === 0 || i === 4) note(roots[bar]/2, t, .24, 'triangle', .07);
-    if(i === 2 || i === 6) note(roots[bar], t, .12, 'triangle', .03);
-    noise(t, .03, i % 2 ? .012 : .022, 7000);
-    if(s % 2 === 0 && Math.random() < .45){ const st = pick([0,2,4,7,9,12]); note(roots[bar]*2*Math.pow(2, st/12), t, .16, 'sine', .022); }
+    if(!actx || !this.song || !this.inst) return;
+    const s = this.song, now = actx.currentTime, ahead = now + .14;
+    for(let k = 0; k < 96 && this.inst; k++){
+      let t, e;
+      if(s.time){ t = this.base + s.time(this.step, this.g); e = this.base + s.time(this.step + 1, this.g) - t; }
+      else { t = this.next; e = 60/this.bpm/4; }
+      if(t >= ahead) break;
+      if(t >= now - .03){
+        if(s.swing && this.step % 4 === 2) t += s.swing*e;
+        try { s.step(this.step, t, e, this.g); } catch(err){ console.warn(err); }
+      }
+      if(!s.time) this.next += e;
+      this.step++;
+    }
   },
 };
+const MENU_VIEWS = ['start','home','programs','dress','album','stamps','players','settings','check','intro'];
+function musicFor(name){
+  if(!actx) return;
+  if(name === 'play'){ if(RUN && RUN.phase === 'count') BGM.stop(); return; }
+  if(name === 'result'){ BGM.stop(); BGM.ensure('menu', 2.4); return; }
+  if(name === 'inter'){ BGM.stop(); BGM.ensure('menu', 2); return; }
+  if(MENU_VIEWS.includes(name)) BGM.ensure('menu');
+}
+/* おんがくの とけいに あわせる（リズムの えんもく よう） */
+function syncClock(g, dt){
+  if(actx && actx.state === 'running'){ if(g.base == null) g.base = actx.currentTime - g.songT; g.songT = actx.currentTime - g.base; }
+  else { g.base = null; g.songT += dt; }
+}
+function syncMusic(g, id){ g.base = actx && actx.state === 'running' ? actx.currentTime - g.songT : null; BGM.start(id, { g, at:g.songT }); }
+
+/* ---------------- きょく ---------------- */
+/* メニュー：かみの げきじょうの ロビー（スウィング） */
+SONGS.menu = (() => {
+  const PROG = ['F','Dm','Gm','C7','F','Dm','Gm|C7','F', 'Bb','C7','Am','Dm','Gm','C7','F','C7'];
+  const MA = mel('C5 - A4 C5 F5 - - .  E5 - D5 - A4 - - .  Bb4 - D5 F5 G5 - F5 E5  E5 - D5 - C5 - - .  C5 - A4 C5 F5 - A5 -  F5 - E5 - D5 - A4 -  D5 - Bb4 D5 E5 - G5 -  F5 - - - . . C5 .');
+  const MB = mel('D5 - F5 - Bb5 - A5 G5  G5 - E5 - C5 - Bb4 -  A4 - C5 - E5 - D5 C5  D5 - - - A4 - - .  Bb4 - D5 - G5 - F5 -  E5 - G5 - Bb5 - A5 G5  A5 - - - F5 - C5 -  E5 - D5 - C5 - - .');
+  return { bpm:100, swing:.5, gain:1.1, step(st, t, e){
+    const bar = Math.floor(st/16) % 16, loop = Math.floor(st/256), i = st % 16, cs = PROG[bar].split('|'), c = chd(cs[i < 8 ? 0 : cs.length - 1]), b = bassN(c);
+    if(i === 0 || i === 8) DR.kick(t, .45);
+    if(i === 4 || i === 12) DR.brush(t, 1);
+    if(i % 4 === 2) DR.hat(t, .55); else if(i % 4 === 0) DR.hat(t, .3);
+    if(i === 0) IN.tuba(t, b, e*3.4);
+    if(i === 8) IN.tuba(t, fifthOf(b), e*3.4);
+    if(i === 4 || i === 12) for(const m of voicing(c, 57)) IN.pluck(t, m, e*2.4, .5);
+    const M = bar < 8 ? MA : MB, n = M.at[(bar % 8)*16 + i];
+    if(n){ IN.mar(t, n.m, n.len*e, 1); if(bar >= 8 || loop % 2) IN.bell(t, n.m + 12, n.len*e, .4); }
+    if(bar === 15 && (i === 12 || i === 14)) DR.block(t, i === 12 ? 1000 : 1300, .6);
+  }};
+})();
+/* くだものキャッチ：みなみの しまの スチールドラム */
+SONGS.catch = (() => {
+  const PROG = ['C','G','Am','F','C','G','F','G', 'F','G','Em','Am','F','G','C','C'];
+  const MA = mel('E5 - G5 E5 C5 - D5 E5  D5 - B4 - G4 - . .  C5 - E5 - A5 - G5 E5  F5 - - - . . E5 F5  G5 - E5 G5 C6 - B5 A5  G5 - D5 - B4 - . G4  A4 - C5 - F5 - E5 D5  D5 - - - G5 - - .');
+  const MB = mel('A5 - G5 - F5 - C5 -  D5 - G5 - B5 - A5 G5  G5 - E5 - B4 - E5 -  C5 - - - A4 - . .  F5 - A5 - C6 - A5 -  B5 - - - G5 - D5 -  E5 - G5 - C6 - - -  . . G5 G5 C6 . . .');
+  const BL = { 0:0, 3:0, 6:7, 8:0, 10:12, 11:0, 14:7 };
+  return { bpm:116, step(st, t, e){
+    const bar = Math.floor(st/16) % 16, i = st % 16, c = chd(PROG[bar]), b = bassN(c);
+    if(i === 0 || i === 8 || i === 11) DR.kick(t, .75);
+    if(i === 4 || i === 12) DR.clap(t, .7);
+    DR.shk(t, i % 2 ? .55 : 1);
+    if(i % 4 === 2) DR.hat(t, .45);
+    if(BL[i] != null) IN.bass(t, b + BL[i], e*1.7, .9);
+    if(i % 4 === 2) for(const m of voicing(c, 60)) IN.uke(t, m, e*1.3, .8);
+    const M = bar < 8 ? MA : MB, n = M.at[(bar % 8)*16 + i];
+    if(n) IN.steel(t, n.m, n.len*e, 1);
+    if(bar === 0 && i === 0 && st > 0) DR.crash(t, .5);
+    if(bar === 15 && i >= 12) DR.tom(t, 220 - (i - 12)*25, .5);
+  }};
+})();
+/* ふたりで たいけつ：ひだり と みぎで かけあう */
+SONGS.versus = (() => {
+  const PROG = ['Bb','C','Am','Dm','Bb','C','Am','Dm|C'];
+  const M = mel('F5 - D5 F5 Bb5 - A5 G5  G5 - E5 G5 C6 - Bb5 A5  A5 - E5 A5 C6 - A5 G5  F5 - - - D5 - - -  D6 - C6 Bb5 F5 - G5 A5  Bb5 - A5 G5 E5 - F5 G5  A5 - G5 F5 E5 - C5 E5  D5 - - - E5 - G5 -');
+  return { bpm:134, step(st, t, e){
+    const bar = Math.floor(st/16) % 8, loop = Math.floor(st/128), i = st % 16, cs = PROG[bar].split('|'), c = chd(cs[i < 8 ? 0 : cs.length - 1]), b = bassN(c);
+    if(i % 4 === 0 || i === 14) DR.kick(t, .8);
+    if(i === 4 || i === 12) DR.snare(t, .8);
+    if(i === 7 || i === 15) DR.snare(t, .18);
+    DR.hat(t, i % 2 ? .35 : .7);
+    if(i % 2 === 0) IN.bass(t, i % 4 === 2 ? b + 12 : b, e*1.6, .85);
+    if(i === 2 || i === 10) IN.stab(t, voicing(c, 62), .8);
+    const n = M.at[bar*16 + i];
+    if(n){ const pan = bar % 2 ? .55 : -.55; IN.chip(t, n.m, n.len*e, 1, pan); if(loop % 2) IN.chip(t, n.m - 12, n.len*e, .5, -pan); }
+    if(bar === 0 && i === 0) DR.crash(t, .55);
+  }};
+})();
+/* ポーズでピタッ：ディスコ。テンポは えんもくが きめる（time） */
+SONGS.pose = (() => {
+  const PROG = ['Am7','Am7','D9','D9','Am7','Am7','Fmaj7','E7'];
+  const M = mel('E5 . E5 . G5 . A5 .  C6 . A5 G5 . E5 . .  F#5 . F#5 . A5 . B5 .  D6 . B5 A5 . F#5 . .  E5 . G5 A5 . C6 . A5  G5 . E5 . D5 . C5 .  A4 . C5 . E5 . F5 .  G#5 - - - E5 - D5 -');
+  return { bpm:96, gain:1.45, time:(st, g) => g && g.stepTime ? g.stepTime(st) : st*60/96/4, step(st, t, e){
+    const bar = Math.floor(st/16), i = st % 16, c = chd(PROG[bar % 8]), b = bassN(c);
+    if(i % 4 === 0) DR.kick(t, .85);
+    if(i === 4 || i === 12) DR.clap(t, .75);
+    if(i % 4 === 2) DR.ohat(t, .8); else DR.hat(t, .3);
+    if(i % 2 === 0) IN.fbass(t, i % 4 === 2 ? b + 12 : b, e*1.6, .9);
+    if(i === 3 || i === 6 || i === 11) IN.stab(t, voicing(c, 60), .75);
+    if(bar >= 1){ const n = M.at[((bar - 1) % 8)*16 + i]; if(n) IN.lead(t, n.m, n.len*e, .8); }
+    if(i === 4 || i === 8 || i === 12) DR.block(t, 900 + i*35, .4);
+    if(i === 0 && bar % 4 === 1) DR.crash(t, .45);
+  }};
+})();
+/* へんしんビーム：ヒーローの テーマ。ボスが くると はげしく */
+SONGS.hero = (() => {
+  const PROG = ['Em','C','D','Em','Em','C','D','B7', 'G','D','Em','C','G','D','C','D'];
+  const MA = mel('B4 . E5 . G5 . B5 .  C6 - - - B5 . G5 .  A5 - - - F#5 . D5 .  E5 - - - - - . .  B4 . E5 . G5 . B5 .  C6 - - - E6 - D6 C6  D6 - - - A5 . F#5 A5  B5 - A5 - F#5 - D#5 -');
+  const MB = mel('G5 - - - B5 - D6 -  D6 - C6 - A5 - - -  B5 - - - G5 - E5 -  G5 - - - - - E5 G5  G5 - - - B5 - D6 -  D6 - - - A5 - D6 -  E6 - - - D6 - C6 -  D6 - - - - - - -');
+  const PW = [0, 3, 6, 10, 12];
+  return { bpm:138, step(st, t, e, g){
+    const bar = Math.floor(st/16) % 16, i = st % 16, c = chd(PROG[bar]), b = bassN(c), boss = !!(g && g.boss);
+    if(i === 0 || i === 6 || i === 8 || (boss && (i === 14 || i === 15))) DR.kick(t, .9);
+    if(i === 4 || i === 12) DR.snare(t, 1);
+    if(boss || i % 2 === 0) DR.hat(t, i % 4 === 0 ? .7 : .4);
+    if(i === 0 && bar % 4 === 0) DR.crash(t, .7);
+    if(i % 2 === 0) IN.bass(t, b, e*1.7, 1);
+    if(PW.includes(i)) IN.stab(t, [b + 12, b + 19, b + 24], .9);
+    const M = bar < 8 ? MA : MB, n = M.at[(bar % 8)*16 + i];
+    if(n){ IN.brass(t, n.m, n.len*e, 1); IN.lead(t, n.m - 12, n.len*e, .35); }
+    if(boss && i % 2 === 0){ const v = voicing(c, 76); IN.chip(t, v[(i/2) % v.length], e*1.5, .5); }
+    if(bar === 7 && i >= 8 && i % 2 === 0) DR.tom(t, 200 - (i - 8)*12, .7);
+  }};
+})();
+/* だるまさんがころんだ：おまつりの ふえと たいこ。オニが みている あいだは ドキドキ だけ */
+SONGS.daruma = (() => {
+  const M = mel('A5 - B5 A5 G5 - E5 -  D5 - E5 - G5 - - -  A5 - D6 - B5 A5 G5 -  A5 - - - - - . .  D6 - B5 - A5 - G5 -  E5 - G5 A5 B5 - A5 -  G5 - E5 - D5 - E5 G5  D5 - - - - - . .');
+  const SH = [50, 57, 62, 57];
+  return { bpm:100, step(st, t, e, g){
+    const i = st % 16, bar = Math.floor(st/16) % 8;
+    if(g && (g.st === 'watch' || g.st === 'turn' || g.st === 'caught')){
+      if(i === 0 || i === 3) tone(t, 55, .18, { type:'sine', v:.5, pl:true, drop:.6 });
+      if(i === 0 && bar % 2 === 0) tone(t, MIDI(38), e*30, { type:'triangle', v:.04, a:.3, r:.4, cut:600 });
+      return;
+    }
+    if(i === 0 || i === 4 || i === 8 || i === 10 || i === 12) DR.taiko(t, i === 0 ? 1 : .6);
+    if(i % 4 === 2) DR.kane(t, .7);
+    if(i % 2 === 0) IN.shami(t, SH[(i/2) % 4], e*2, .8);
+    const n = M.at[bar*16 + i];
+    if(n) IN.flute(t, n.m, n.len*e, 1);
+  }};
+})();
+/* かけっこ：オッフェンバック「天国と地獄」（パブリックドメイン）。2/4びょうしを 8マスで 1しょうせつ。
+   はしる はやさで テンポが かわる。2かいめは 1おん たかく */
+SONGS.run = (() => {
+  const M = mel('C5 - - -  D5 F5 E5 D5  G5 - G5 -  G5 A5 E5 F5  D5 - D5 -  D5 F5 E5 D5  C5 C6 B5 A5  G5 F5 E5 D5  C5 - - -  D5 F5 E5 D5  G5 - G5 -  G5 A5 E5 F5  D5 - D5 -  D5 F5 E5 D5  C5 G4 D5 E5  C5 - . .');
+  const PROG = ['C','G7','C','C','G7','G7','C','G7','C','G7','C','C','G7','G7','C|G7','C'];
+  return { bpm:140, step(st, t, e){
+    const bar = Math.floor(st/8) % 16, loop = Math.floor(st/128), i = st % 8, tr = loop % 2 ? 2 : 0;
+    const cs = PROG[bar].split('|'), c = chd(cs[i < 4 ? 0 : cs.length - 1]), b = bassN(c) + tr;
+    if(i === 0 || i === 4){ DR.kick(t, .8); IN.tuba(t, i === 0 ? b : fifthOf(b), e*1.8, 1); }
+    if(i === 2 || i === 6){ DR.snare(t, .45); for(const m of voicing(c, 60)) IN.pluck(t, m + tr, e*1.2, .55); }
+    DR.hat(t, i % 2 ? .3 : .5);
+    const n = M.at[bar*8 + i];
+    if(n){ IN.brass(t, n.m + tr, n.len*e, 1); IN.bell(t, n.m + tr + 12, n.len*e, .35); }
+    if(bar === 15 && i >= 4) DR.snare(t, .3 + (i - 4)*.15);
+    if(bar === 0 && i === 0) DR.crash(t, .6);
+  }};
+})();
+/* おどって ドン！：ダンスポップ。まえおき → A → B（もりあげ）→ C（サビ）→ おわり */
+SONGS.dance = (() => {
+  const PROG = ['Am','F','C','G'];
+  const HOOK = mel('E5 - E5 - G5 - A5 -  A5 - - G5 F5 - E5 -  G5 - - - E5 - C5 -  D5 - - - . . . .  E5 - E5 - G5 - A5 -  C6 - - B5 A5 - G5 -  G5 - E5 - G5 - C6 -  B5 - - - D6 - - -');
+  const BASS = 'R.Ro..R.R.Ro..R.';
+  return { bpm:112, gain:1.45, time:(st, g) => st*(g ? g.spb : 60/112)/4, step(st, t, e, g){
+    if(!g) return;
+    const beat = st/4, sec = g.secAt(beat), i = st % 16, bar = Math.floor(st/16), c = chd(PROG[bar % 4]), b = bassN(c);
+    if(beat >= g.endBeat) return;
+    if(sec === 'end'){
+      if(st === (g.endBeat - 8)*4){ DR.crash(t, 1.1); DR.kick(t, 1); IN.stab(t, [48, 60, 64, 67, 72], 1.2); IN.pad(t, [60, 64, 67, 72], 2.4, 1.2); DR.hey(t + e*2, 1); }
+      return;
+    }
+    const intro = sec === 'intro', A = sec === 'A', B = sec === 'B', Cc = sec === 'C';
+    if(st === 0){ IN.pad(t, voicing(chd('Am'), 57), e*30, 1.2); DR.riser(t, e*30, 1); }
+    if(i % 4 === 0 && (!intro || beat >= 4)) DR.kick(t, 1);
+    if(!intro && (i === 4 || i === 12)) DR.clap(t, .85);
+    if(i % 4 === 2) DR.ohat(t, intro ? .4 : .75); else if(!intro) DR.hat(t, .3);
+    if(Cc && i % 2 === 1) DR.hat(t, .2);
+    if(intro && i % 4 === 0 && beat >= 4) DR.block(t, beat % 4 === 0 ? 1320 : 990, .6);
+    const bc = BASS[i];
+    if(!intro && bc !== '.') IN.fbass(t, bc === 'o' ? b + 12 : b, e*1.5, 1);
+    if(!intro && i % 4 === 2) IN.stab(t, voicing(c, 60), A ? .8 : .6);
+    if(B || Cc){ const v = voicing(c, 64), arp = [v[0], v[1], v[2], v[0] + 12]; IN.pluck(t, arp[i % 4] + (Cc ? 12 : 0), e*.9, B ? .55 : .35, i % 2 ? .3 : -.3); }
+    if(B && i === 0) IN.pad(t, voicing(c, 57), e*15, .9);
+    if((A || B) && g.secAt(beat + 4) === 'C'){ DR.snare(t, .25 + (i/16)*.7); if(i === 0) DR.riser(t, e*16, 1); }
+    if(Cc){
+      const cb = Math.floor((beat - g.c0)/4), n = HOOK.at[(cb % 8)*16 + i];
+      if(n){ IN.saw(t, n.m, n.len*e, 1); IN.bell(t, n.m + 12, n.len*e, .25); }
+      if(i === 0 && cb % 4 === 0) DR.crash(t, .8);
+      if(i === 12 && cb % 2 === 1) DR.hey(t, .9);
+      if(i === 0) IN.pad(t, voicing(c, 57), e*15, .7);
+      if(g.fever && i % 2 === 0) IN.bell(t, voicing(c, 76)[(i/2) % 3], e*2, .4);
+    }
+  }};
+})();
+/* パンチでパーン：8ビットの トレーニング ロック */
+SONGS.punch = (() => {
+  const PROG = ['Dm','Bb','C','A','Dm','Bb','C','A7'];
+  const M = mel('D5 - F5 - A5 - D6 -  D6 - C6 Bb5 F5 - - -  E5 - G5 - C6 - E6 -  C#6 - - - A5 - E5 -  D5 - F5 - A5 - D6 -  F6 - D6 - Bb5 - F5 -  G5 - C6 - E6 - G6 -  E6 - C#6 - A5 - G5 -');
+  return { bpm:128, gain:1.15, step(st, t, e){
+    const bar = Math.floor(st/16) % 8, loop = Math.floor(st/128), i = st % 16, c = chd(PROG[bar]), b = bassN(c);
+    if(i === 0 || i === 6 || i === 8 || i === 10) DR.kick(t, .95);
+    if(i === 4 || i === 12) DR.snare(t, 1);
+    DR.hat(t, i % 2 ? .3 : .6);
+    if(i === 0 && bar % 4 === 0) DR.crash(t, .7);
+    if(i % 2 === 0) IN.cbass(t, i % 4 === 2 ? b + 12 : b, e*1.8, 1);
+    if(i === 0 || i === 3 || i === 6 || i === 10) IN.stab(t, [b + 12, b + 19, b + 24], .7);
+    const n = M.at[bar*16 + i];
+    if(n){ IN.chip(t, n.m, n.len*e, 1); if(loop % 2) IN.chip(t, n.m - 12, n.len*e, .55, .3); }
+    if(bar === 7 && i === 12) DR.hey(t, .8);
+  }};
+})();
+/* ふうせんポンポン：ふわふわの ワルツ（3びょうし） */
+SONGS.balloon = (() => {
+  const PROG = ['G','G','C','G','D','D7','G','G', 'Em','C','G','D','C','D','G','G'];
+  const MA = mel('D5 G5 B5  A5 G5 D5  E5 G5 C6  B5 - -  A5 F#5 D5  C6 A5 F#5  G5 B5 D6  G5 - -', 4);
+  const MB = mel('E5 G5 B5  C6 B5 A5  B5 D6 B5  A5 - -  E5 G5 C6  D6 C6 A5  B5 A5 G5  G5 - -', 4);
+  return { bpm:150, gain:3.6, step(st, t, e){
+    const bar = Math.floor(st/12) % 16, i = st % 12, c = chd(PROG[bar]), b = bassN(c);
+    if(i === 0){ IN.pizz(t, b + 12, e*3, 1.2); DR.block(t, 700, .5); IN.pad(t, voicing(c, 55), e*11, .4); }
+    if(i === 4 || i === 8) for(const m of voicing(c, 62)) IN.pizz(t, m, e*2, .5);
+    if(i % 2 === 0) DR.shk(t, i % 4 === 0 ? .5 : .3);
+    const M = bar < 8 ? MA : MB, n = M.at[(bar % 8)*12 + i];
+    if(n){ IN.bell(t, n.m, n.len*e, 1); if(bar >= 8) IN.flute(t, n.m - 12, n.len*e, .5); }
+  }};
+})();
+/* キリガミ バトル：かくとうゲームの たいせん きょく */
+SONGS.fight = (() => {
+  const PROG = ['Cm','Ab','Bb','G','Cm','Ab','Bb','G'];
+  const M = mel('C5 - Eb5 - G5 - C6 Bb5  Ab5 - - - Eb5 - C5 -  D5 - F5 - Bb5 - D6 C6  B5 - - - G5 - D5 -  G5 - C6 - Eb6 - D6 C6  C6 - Ab5 - Eb5 - Ab5 -  Bb5 - D6 - F6 - D6 Bb5  B5 - - - D6 - - -');
+  const GAL = 'x.xxx.xxx.xxx.xx';
+  return { bpm:150, step(st, t, e, g){
+    if(g && g.ko != null) return;
+    const bar = Math.floor(st/16) % 8, i = st % 16, c = chd(PROG[bar]), b = bassN(c);
+    if([0, 3, 6, 10, 13].includes(i)) DR.kick(t, .95);
+    if(i === 4 || i === 12) DR.snare(t, 1);
+    DR.hat(t, i % 4 === 0 ? .6 : .3);
+    if(i === 0){ DR.taiko(t, bar % 2 ? .6 : 1); if(bar % 4 === 0) DR.crash(t, .8); }
+    if(GAL[i] === 'x') IN.bass(t, i % 4 === 3 ? b + 12 : b, e*.9, .9);
+    if(i === 0 || i === 6 || i === 12) IN.stab(t, voicing(c, 60), .8);
+    const n = M.at[bar*16 + i];
+    if(n) IN.saw(t, n.m, n.len*e, 1);
+  }};
+})();
+/* ビーチバレー：なつの サーフロック */
+SONGS.volley = (() => {
+  const PROG = ['E','A','E','B7','E','A','B7','E'];
+  const M = mel('B4 - E5 - G#5 - B5 -  C#6 - B5 - A5 - E5 -  G#5 - - - E5 - B4 -  D#5 - F#5 - A5 - B5 -  E5 - G#5 B5 E6 - - -  C#6 - A5 - E5 - C#5 -  D#5 - F#5 - A5 - F#5 D#5  E5 - - - . . . .');
+  const WALK = [0, 4, 7, 9, 10, 9, 7, 4];
+  return { bpm:152, step(st, t, e){
+    const bar = Math.floor(st/16) % 8, i = st % 16, c = chd(PROG[bar]), b = bassN(c);
+    if(i === 0 || i === 8 || i === 10) DR.kick(t, .85);
+    if(i === 4 || i === 12) DR.snare(t, .9);
+    if(i % 2 === 0) DR.shk(t, .8);
+    if(bar === 7 && i >= 8 && i % 2 === 0) DR.tom(t, 260 - (i - 8)*22, .8);
+    if(i % 2 === 0) IN.bass(t, b + WALK[(i/2) % 8], e*1.7, .9);
+    if(i % 4 === 2) IN.organ(t, voicing(c, 60), e*1.2, .9);
+    const n = M.at[bar*16 + i];
+    if(n) IN.twang(t, n.m, n.len*e, 1);
+    if(i === 0 && bar === 0) DR.crash(t, .6);
+  }};
+})();
+/* きめポーズ：ドラムロール → シャッターで ジャーン */
+SONGS.kime = { bpm:120, step(st, t, e){
+  if(st < 25){
+    const v = .2 + st/25*.8;
+    DR.snare(t, v*.7);
+    if(st >= 8) DR.snare(t + e/2, v*.6);
+    if(st >= 18){ DR.snare(t + e/4, v*.5); DR.snare(t + e*3/4, v*.5); }
+    if(st % 8 === 0) DR.tom(t, 110, .6);
+  } else if(st === 25){
+    DR.crash(t, 1.3); DR.kick(t, 1);
+    IN.stab(t, [48, 55, 60, 64, 67, 72], 1.3);
+    for(const m of [72, 76, 79]) IN.brass(t, m, .9, .6);
+  }
+}};
 
 /* ---------------- 入力 ---------------- */
 const pointer = { x:900, y:300, down:false, onStage:false };
@@ -535,7 +971,10 @@ window.addEventListener('keyup', e => {
 window.addEventListener('blur', () => { for(const k in keys) keys[k] = false; keyPreset = null; pointer.down = false; });
 document.addEventListener('visibilitychange', () => {
   if(document.hidden){ BGM.stop(); if(RUN && RUN.phase === 'play') pauseRun('manual'); }
-  else if(mode === 'camera') requestWake();
+  else {
+    if(mode === 'camera') requestWake();
+    if(!(RUN && ['count','play','pause','kime'].includes(RUN.phase))) musicFor(view);
+  }
 });
 
 /* かおしゃしん（カメラなしのとき用） */
@@ -781,18 +1220,18 @@ function updatePoses(dt, now){
 }
 function setRigs(){
   const r = rigs[0];
-  Object.assign(r, { minX:120, maxX:W-120, lock:null, idle:false, armMode:'pointer', jumpT:-1 });
+  Object.assign(r, { minX:120, maxX:W-120, lock:null, idle:false, armMode:'pointer', jumpT:-1, cross:false });
   const inGame = RUN && ['intro','count','play','pause','kime'].includes(RUN.phase);
   if(!inGame){ r.idle = true; r.lock = W/2; r.cx = W/2; return; }
-  const pair = GAMES[RUN.id].players === 2;
+  const d = GAMES[RUN.id], pair = d.players === 2;
   if(RUN.phase === 'intro' && !pair){ r.cx = W >= H ? W*.68 : W*.5; r.px = r.cx + 140; }
   if(RUN.id === 'pose') r.lock = W >= H ? W*0.34 : W*0.3;
   if(RUN.id === 'run' && RUN.phase !== 'intro') r.lock = W/2;
   if(RUN.id === 'dance' && RUN.phase !== 'intro') r.lock = W >= H ? W*0.4 : W*0.32;
   if(pair){
     r.maxX = W/2 - 110; r.cx = W*0.25;
-    Object.assign(rigs[1], { minX:W/2+110, maxX:W-110, cx:W*0.75, px:W*0.75, py:300, idle:false, armMode:'pointer', lock:null, jumpT:-1 });
-    if(RUN.id === 'run2'){ r.lock = W*0.25; rigs[1].lock = W*0.75; }
+    Object.assign(rigs[1], { minX:W/2+110, maxX:W-110, cx:W*0.75, px:W*0.75 + 70, py:380, idle:false, armMode:'pointer', target:null, lock:null, jumpT:-1, cross:false });
+    if(d.lock2){ r.lock = W*0.25; rigs[1].lock = W*0.75; }
   }
   r.cx = r.lock != null ? r.lock : clamp(r.cx, r.minX, r.maxX);
 }
@@ -1003,6 +1442,32 @@ const BG = {
     X.fillStyle = '#22184a'; X.fillRect(0, H*.84, W, H*.16);
     X.fillStyle = 'rgba(251,246,234,.25)'; X.fillRect(0, H*.84, W, 4);
     valance(C.fuji);
+  },
+  fight(){
+    fillBase('#3a1d4f');
+    for(let i = -2; i < 13; i++){ X.fillStyle = i % 2 ? 'rgba(251,246,234,.035)' : 'rgba(0,0,0,.07)'; X.beginPath(); X.moveTo(i*W/10, 0); X.lineTo(i*W/10 + W/10, 0); X.lineTo(i*W/10 + W/10 - 160, H); X.lineTo(i*W/10 - 160, H); X.closePath(); X.fill(); }
+    X.globalAlpha = .2; fCircle(W/2, H*.5, H*.36, C.shu); X.globalAlpha = 1;
+    for(const [x, c] of [[W*.08, C.shu], [W*.92, C.fuji]]){
+      pShape(() => { X.beginPath(); X.moveTo(x - 30, 60); X.lineTo(x + 30, 60); X.lineTo(x + 30, 300); X.lineTo(x, 280); X.lineTo(x - 30, 300); X.closePath(); }, c, 4);
+      pShape(() => starPath(x, 150, 20, .45), C.yama, 3);
+    }
+    X.strokeStyle = 'rgba(251,246,234,.45)'; X.lineWidth = 6;
+    for(const y of [H*.6, H*.67, H*.74]){ X.beginPath(); X.moveTo(0, y); X.lineTo(W, y); X.stroke(); }
+    X.fillStyle = '#6b3f22'; X.fillRect(0, H*.84, W, H*.16);
+    X.strokeStyle = 'rgba(251,246,234,.15)'; X.lineWidth = 2;
+    for(let x = 0; x < W; x += 120){ X.beginPath(); X.moveTo(x, H*.84); X.lineTo(x - 40, H); X.stroke(); }
+    valance(C.shu);
+  },
+  volley(){
+    fillBase('#8fd6f2');
+    pCircle(W*.86, 120, 44, '#ffd75e', 5);
+    puff(W*.2, 130, .8); puff(W*.55, 96, .6);
+    X.fillStyle = '#3aa7d6'; X.fillRect(0, H*.46, W, H*.18);
+    X.strokeStyle = 'rgba(251,246,234,.55)'; X.lineWidth = 3;
+    for(let y = H*.5; y < H*.63; y += 20){ X.beginPath(); for(let x = 0; x <= W; x += 20) X.lineTo(x, y + Math.sin(x/40 + y)*3); X.stroke(); }
+    torn(H*.62, 8, 140, '#f2d49b', 111);
+    for(let i = 0; i < 40; i++){ const r = seeded(i*5 + 3); fCircle(r()*W, H*.66 + r()*H*.32, 1.5 + r()*2.5, 'rgba(160,110,50,.25)'); }
+    valance(C.mizu);
   },
   versus(){
     X.fillStyle = '#86cfe6'; X.fillRect(0, 0, W/2, H);
@@ -1323,8 +1788,9 @@ const CONF_COLS = [C.shu, C.yama, C.mizu, C.momo, C.waka, C.kami];
 function burst(g, x, y, col, n = 12){
   for(let i=0;i<n;i++){ const a = rand(0, TAU), v = rand(140, 400);
     g.fx.push({ x, y, vx:Math.cos(a)*v, vy:Math.sin(a)*v - 120, rot:rand(0,6), vr:rand(-10,10), s:rand(7,13), col: i % 3 ? col : pick(CONF_COLS), life:rand(.5,.9) }); }
+  if(g.fx.length > 240) g.fx.splice(0, g.fx.length - 240);   /* かみふぶきが ふえすぎて おもく ならないように */
 }
-function floatText(g, x, y, s, col = C.sumi, size = 40){ g.texts.push({ x, y, s, col, size, life:1.1 }); }
+function floatText(g, x, y, s, col = C.sumi, size = 40){ g.texts.push({ x, y, s, col, size, life:1.1 }); if(g.texts.length > 30) g.texts.shift(); }
 function stepFx(g, dt){
   g.fx = g.fx.filter(f => (f.life -= dt) > 0);
   for(const f of g.fx){
@@ -1412,7 +1878,7 @@ function stepItems(g, items, p, dt, onHit){
 const GAMES = {};
 
 GAMES.catch = {
-  title:'くだものキャッチ', short:'おちてくる くだものを てで キャッチ', color:'#e5553f', theme:'catch', players:1, tempo:118, icon:'catch',
+  title:'くだものキャッチ', short:'おちてくる くだものを てで キャッチ', color:'#e5553f', theme:'catch', players:1, song:'catch', icon:'catch',
   how:['うでを のばして くだものに タッチ', '「おだい」の くだものは 3てん！', 'ばくだんに さわると −3てん'],
   demoHow:['マウス（ゆび）で てを うごかそう', '「おだい」の くだものは 3てん！', 'ばくだんに さわると −3てん'],
   duration:show => show ? 30 : 45,
@@ -1447,59 +1913,166 @@ GAMES.catch = {
   medal:r => tier(r.score, [12, 25, 40], r.scale),
 };
 
+/* ポーズでピタッ：おんがくの 1しょうせつ（4はく）で 1ポーズ。
+   1はくめで おだいが でて、3・2・1 と かぞえて つぎの しょうせつの あたまで「ピタッ！」。
+   しょうせつ ごとに テンポが あがって どんどん はやく なる */
+const POSE_PERF = .78, POSE_GOOD = .55;
+function poseAt(g, k){
+  while(g.order.length <= k){ const last = g.order[g.order.length - 1]; let n; do { n = Math.random()*POSES.length | 0; } while(n === last); g.order.push(n); }
+  return POSES[g.order[k]];
+}
+function poseInit(g, n){
+  const sp = g.D.speed, b0 = 90 + (sp - 1)*50, inc = 3 + (sp - 1)*5, mx = 150 + (sp - 1)*90;
+  g.bpmAt = k => Math.min(mx, b0 + inc*Math.max(0, k - 1));
+  g.barT = [0]; g.barL = [];
+  for(let k = 0; k < 300; k++){ g.barL[k] = 240/g.bpmAt(k); g.barT[k + 1] = g.barT[k] + g.barL[k]; }
+  g.stepTime = st => { const k = Math.floor(st/16); return g.barT[k] + (st % 16)/16*g.barL[k]; };
+  g.order = [-1]; g.k = 0; g.jd = []; g.songT = 0; g.base = null; g.n = n;
+  g.lives = Array(n).fill(g.show ? 99 : 3); g.pts = Array(n).fill(0); g.combo = Array(n).fill(0);
+  g.fb = Array(n).fill(null); g.match = Array(n).fill(0); g.endT = null; g.w = null; g.lvT = 0;
+  g.maxPoses = n === 2 ? 30 : g.show ? 8 : 40;
+  g.stats = { perfect:0, good:0, miss:0, maxCombo:0, level:1 };
+}
+function poseStep(g, dt, ps){
+  syncClock(g, dt);
+  while(g.songT >= g.barT[g.k + 1]){
+    g.k++;
+    if(g.k >= 1 && g.k <= g.maxPoses) g.jd.push({ k:g.k, best:Array(g.n).fill(0) });
+    if(g.k > 1 && g.k <= g.maxPoses && (g.k - 1) % 4 === 0 && g.bpmAt(g.k) > g.bpmAt(g.k - 4)){ g.lvT = 1.4; sfx.order(); }
+  }
+  for(const j of g.jd){
+    const pose = poseAt(g, j.k), t0 = g.barT[j.k] + g.barL[j.k]*.4, t1 = g.barT[j.k + 1] + .28;
+    if(g.songT >= t0) for(let i = 0; i < g.n; i++) if(ps[i]) j.best[i] = Math.max(j.best[i], matchScore(ps[i], pose));
+    if(g.songT >= t1){ j.done = true; poseJudge(g, j, ps); }
+  }
+  g.jd = g.jd.filter(j => !j.done);
+  const cur = poseAt(g, clamp(g.k, 1, g.maxPoses));
+  for(let i = 0; i < g.n; i++){ g.match[i] = ps[i] ? matchScore(ps[i], cur) : 0; if(g.fb[i]) g.fb[i].t -= dt; }
+  g.lvT -= dt;
+  if(g.endT != null){ g.endT -= dt; if(g.endT <= 0) g.over = true; }
+}
+function poseJudge(g, j, ps){
+  if(g.endT != null) return;
+  const perf = POSE_PERF - (g.D.hit - 1)*.2, good = POSE_GOOD - (g.D.hit - 1)*.2, bpm = g.bpmAt(j.k);
+  for(let i = 0; i < g.n; i++){
+    const b = j.best[i], p = ps[i];
+    let label, col;
+    if(b >= perf){
+      g.combo[i]++; g.pts[i] += g.n === 2 ? 2 : 100 + g.combo[i]*10 + Math.round(bpm - 90);
+      label = 'ピタッ！'; col = C.shu; if(i === 0) g.stats.perfect++;
+      if(p) burst(g, p.head.x, p.head.y, C.yama, 16);
+    } else if(b >= good){ g.combo[i] = 0; g.pts[i] += g.n === 2 ? 1 : 50; label = 'おしい！'; col = C.mizu; if(i === 0) g.stats.good++; }
+    else { g.combo[i] = 0; g.lives[i]--; label = 'ざんねん'; col = C.sumi; if(i === 0) g.stats.miss++; }
+    g.fb[i] = { label, col, t:1 };
+  }
+  g.stats.maxCombo = Math.max(g.stats.maxCombo, g.combo[0]);
+  g.stats.level = Math.floor((j.k - 1)/4) + 1;
+  const top = Math.max(...j.best);
+  if(top >= perf) sfx.perfect(); else if(top >= good) sfx.good(); else sfx.miss();
+  g.score = g.pts[0];
+  const out = g.lives.map(v => v <= 0), cmp = () => g.pts[0] === g.pts[1] ? -1 : g.pts[0] > g.pts[1] ? 0 : 1;
+  if(g.n === 1 && out[0]) g.endT = 1.1;
+  else if(g.n === 2 && (out[0] || out[1])){ g.w = out[0] && out[1] ? cmp() : out[0] ? 1 : 0; g.endT = 1.5; sfx.fanfare(); }
+  else if(j.k >= g.maxPoses){ if(g.n === 2) g.w = cmp(); g.endT = 1.1; }
+}
+/* おてほんカード（いまの ポーズ・はくの まる・つぎ） */
+function drawPoseCard(g, px, py, pw, ph, small){
+  const k = clamp(g.k, 1, g.maxPoses), pose = poseAt(g, k), intro = g.k < 1;
+  paperCard(px, py, pw, ph, C.kami, 6, 12);
+  X.font = `400 ${small ? 16 : 20}px ${FONT_POP}`; X.textAlign = 'center'; X.textBaseline = 'middle'; X.fillStyle = '#c2367a';
+  X.fillText(intro ? 'さいしょは…' : `おてほん　${Math.round(g.bpmAt(Math.max(1, g.k)))}BPM`, px + pw/2, py + (small ? 20 : 28));
+  const s = small ? ph/700 : ph/650, gy = small ? py + 38 + 124*s : py + 160*(ph/480);
+  guideFigure(pose, px + pw/2, gy, s, '#f27c9c');
+  ptxt(pose.name, px + pw/2, py + ph - (small ? 66 : 96), small ? 24 : 32);
+  if(mode !== 'camera'){ X.font = `700 ${small ? 13 : 16}px ${FONT_UI}`; X.fillStyle = '#c2367a'; X.fillText(`キー [${(POSES.indexOf(pose) + 1) % 10}]`, px + pw/2, py + ph - (small ? 44 : 64)); }
+  const kk = Math.max(0, g.k), bi = Math.floor((g.songT - g.barT[kk])/(g.barL[kk]/4));
+  for(let q = 0; q < 4; q++){
+    const on = q === bi, cx = px + pw/2 + (q - 1.5)*(small ? 30 : 42), cy = py + ph - (small ? 20 : 28);
+    pCircle(cx, cy, on ? (small ? 12 : 14) : (small ? 8 : 10), on ? (q === 3 ? C.shu : '#c2367a') : C.kami3, 3);
+  }
+  if(!intro && g.k < g.maxPoses){ X.font = `700 ${small ? 13 : 15}px ${FONT_UI}`; X.fillStyle = C.kami; X.textAlign = 'right'; X.fillText(`つぎ：${poseAt(g, g.k + 1).name}`, px + pw, py + ph + 20); }
+}
+/* 3・2・1 の かずと はくの もじ */
+function poseCount(g, x, y, size){
+  const kk = Math.max(0, g.k), f = (g.songT - g.barT[kk])/(g.barL[kk]/4), bi = Math.floor(f), pl = 1 - (f - bi);
+  if(g.k >= 1 && g.k <= g.maxPoses){
+    const txt = bi === 0 ? poseAt(g, g.k).name + '！' : String(4 - bi);
+    ptxt(txt, x, y, size*(bi === 0 ? .7 : 1)*(1 + pl*.15), bi === 0 ? '#c2367a' : C.sumi);
+  } else if(g.k === 0) ptxt(bi < 2 ? 'じゅんび' : String(4 - bi), x, y, size*.8, C.sumi);
+  if(g.lvT > 0){ X.globalAlpha = clamp(g.lvT, 0, 1); ptxt('スピード アップ！', x, y + size*.9, size*.55, C.shu); X.globalAlpha = 1; }
+}
+
 GAMES.pose = {
-  title:'ポーズでピタッ', short:'おてほんと おなじ ポーズで ピタッ', color:'#c2367a', theme:'pose', players:1, tempo:100, icon:'pose',
-  how:['みぎの おてほんと おなじ ポーズを してね', 'バーが いっぱいに なる しゅんかんに ピタッ！', 'つづけて できると コンボで てんすう アップ'],
-  demoHow:['キーボードの 1〜9・0 で ポーズが かわるよ', 'バーが いっぱいに なる しゅんかんに ピタッ！', 'つづけて できると コンボで てんすう アップ'],
+  title:'ポーズでピタッ', short:'おてほんと おなじ ポーズ！ どんどん はやく', color:'#c2367a', theme:'pose', players:1, icon:'pose', pair:'pose2',
+  how:['みぎの おてほんと おなじ ポーズを してね', '3・2・1 の あと、つぎの はくで ピタッ！', 'どんどん はやく なるよ。3かい ミスで おしまい'],
+  demoHow:['キーボードの 1〜9・0、↑←→ で ポーズが かわるよ', '3・2・1 の あと、つぎの はくで ピタッ！', 'どんどん はやく なるよ。3かい ミスで おしまい'],
   duration:() => null,
-  init(g){
-    g.beats = g.show ? 7 : 12; g.order = []; let last = -1;
-    for(let i=0;i<g.beats;i++){ let n; do { n = Math.random()*POSES.length|0; } while(n === last); g.order.push(n); last = n; }
-    g.i = 0; g.beatLen = 3.2/g.D.speed; g.beatT = g.beatLen; g.best = 0; g.combo = 0; g.fb = null; g.match = 0;
-    g.stats = { perfect:0, good:0, maxCombo:0 };
+  init(g){ poseInit(g, 1); },
+  music(g){ syncMusic(g, 'pose'); },
+  update(g, dt, ps){ poseStep(g, dt, ps); },
+  draw(g){
+    const land = W >= H, pw = land ? Math.min(380, W*.3) : Math.min(230, W*.44), ph = land ? 480 : 300;
+    const px = W - pw - (land ? 30 : 14), py = land ? 104 : 96;
+    drawPoseCard(g, px, py, pw, ph, !land);
+    poseCount(g, land ? W*.34 : W*.3, land ? 128 : 124, land ? 80 : 56);
+    const m = g.match[0];
+    meter(24, H - 86, Math.min(300, W - 48), 58, m, m >= POSE_PERF ? C.shu : '#c2367a', `そっくり ${Math.round(m*100)}%`);
+    if(g.combo[0] > 1) ptxt(`${g.combo[0]} コンボ`, 174, H - 120, 28, C.shu);
+    const f = g.fb[0];
+    if(f && f.t > 0){ X.globalAlpha = clamp(f.t*2, 0, 1); ptxt(f.label, land ? W*.34 : W*.36, 250 - (1 - f.t)*30, land ? 60 : 42, f.col); X.globalAlpha = 1; }
   },
+  hud:g => ({ time:`Lv${g.stats.level}`, frac:clamp(1 - Math.max(0, g.k)/g.maxPoses, 0, 1), lives:g.show ? null : g.lives[0], maxLives:3 }),
+  result:g => ({ score:g.score, stats:g.stats, scale:g.show ? .4 : 1 }),
+  medal:r => tier(r.stats.perfect, [6, 12, 20], r.scale),
+};
+
+GAMES.pose2 = {
+  title:'ふたりで ポーズ', short:'2人で おなじ ポーズ！ どんどん はやく', color:'#a02f6a', theme:'pose', players:2, icon:'pose', pair:'pose', lock2:true,
+  how:['2人で ならんで カメラの まえへ', 'まんなかの おてほんと おなじ ポーズで ピタッ！', 'どんどん はやく なるよ。さきに 3かい ミスしたら まけ'],
+  demoHow:['ひだりが あなた、みぎは コンピューター', 'キーボードの 1〜9・0、↑←→ で ポーズ', 'どんどん はやく なるよ。さきに 3かい ミスしたら まけ'],
+  duration:() => null,
+  init(g){ poseInit(g, 2); g.cpuK = -1; g.cpuAt = null; },
+  music(g){ syncMusic(g, 'pose'); },
   update(g, dt, ps){
-    const p = ps[0], pose = POSES[g.order[g.i]];
-    g.match = matchScore(p, pose);
-    if(g.beatT < .7) g.best = Math.max(g.best, g.match);
-    g.beatT -= dt; if(g.fb) g.fb.t -= dt;
-    if(g.beatT <= 0){
-      const perf = .78 - (g.D.hit - 1)*.2, good = .55 - (g.D.hit - 1)*.2;
-      let label, col;
-      if(g.best >= perf){ g.combo++; g.stats.perfect++; g.score += 100 + (g.combo > 1 ? g.combo*10 : 0); label = 'ピタッ！'; col = C.yama; sfx.perfect(); burst(g, p.head.x, p.head.y, C.yama, 20); }
-      else if(g.best >= good){ g.combo = 0; g.stats.good++; g.score += 50; label = 'おしい！'; col = C.mizu; sfx.good(); }
-      else { g.combo = 0; label = 'ざんねん'; col = C.kami3; sfx.miss(); }
-      g.stats.maxCombo = Math.max(g.stats.maxCombo, g.combo);
-      g.fb = { label, col, t:1 };
-      g.i++;
-      if(g.i >= g.order.length){ g.over = true; g.i = g.order.length - 1; return; }
-      g.beatLen = Math.max(2.0, g.beatLen - .07); g.beatT = g.beatLen; g.best = 0;
-      BGM.tempo = clamp(240/g.beatLen, 80, 140);
+    if(mode !== 'camera') this.cpu(g);
+    poseStep(g, dt, ps);
+  },
+  /* コンピューター：はやく なるほど まちがえやすい */
+  cpu(g){
+    const rg = rigs[1];
+    if(g.k !== g.cpuK){
+      g.cpuK = g.k;
+      if(g.k >= 1 && g.k <= g.maxPoses){
+        const ok = clamp(1.05 - (g.bpmAt(g.k) - 80)/170 + (g.D.speed - 1)*.4, .3, .97);
+        g.cpuAt = g.barT[g.k] + rand(.15, .5)*g.barL[g.k];
+        g.cpuPose = Math.random() < ok ? poseAt(g, g.k) : POSES[(g.order[g.k] + 1 + (Math.random()*(POSES.length - 1) | 0)) % POSES.length];
+      }
+    }
+    if(g.cpuAt != null && g.songT >= g.cpuAt){ rg.armMode = 'preset'; rg.target = g.cpuPose; g.cpuAt = null; }
+  },
+  draw(g, ps){
+    const land = W >= H, pw = land ? Math.min(250, W*.22) : Math.min(180, W*.4), ph = land ? 330 : 250;
+    drawPoseCard(g, W/2 - pw/2, 98, pw, ph, true);
+    poseCount(g, W/2, 98 + ph + 56, land ? 64 : 44);
+    const cam = mode === 'camera';
+    for(let i = 0; i < 2; i++){
+      const x = i ? W*.75 : W*.25, col = i ? C.fuji : C.shu, w = Math.min(250, W/2 - 60), m = g.match[i];
+      paperCard(x - w/2, H - 100, w, 82, C.kami, 5, 12);
+      X.font = `700 17px ${FONT_UI}`; X.textAlign = 'left'; X.textBaseline = 'middle'; X.fillStyle = C.sumi;
+      X.fillText(i ? (cam ? 'みぎの ひと' : 'コンピューター') : (cam ? 'ひだりの ひと' : 'あなた'), x - w/2 + 14, H - 80);
+      for(let h = 0; h < 3; h++){ const on = h < g.lives[i], hx = x - w/2 + 22 + h*30, hy = H - 44;
+        pShape(() => { X.beginPath(); X.moveTo(hx, hy + 9); X.bezierCurveTo(hx - 14, hy, hx - 10, hy - 12, hx, hy - 5); X.bezierCurveTo(hx + 10, hy - 12, hx + 14, hy, hx, hy + 9); X.closePath(); }, on ? C.shu : C.kami3, 2); }
+      ptxt(String(g.pts[i]), x + w/2 - 40, H - 58, 40, col);
+      X.fillStyle = C.kami3; X.fillRect(x - w/2 + 110, H - 49, w - 170, 8); X.fillStyle = m >= POSE_PERF ? C.shu : col; X.fillRect(x - w/2 + 110, H - 49, (w - 170)*m, 8);
+      const f = g.fb[i], p = ps[i];
+      if(f && f.t > 0 && p){ X.globalAlpha = clamp(f.t*2, 0, 1); ptxt(f.label, p.head.x, p.head.y - p.faceR - 70 - (1 - f.t)*24, land ? 44 : 32, f.col); X.globalAlpha = 1; }
     }
   },
-  draw(g){
-    const pose = POSES[g.order[g.i]], land = W >= H;
-    const pw = land ? Math.min(380, W*.3) : Math.min(230, W*.44), ph = land ? 480 : 300;
-    const px = W - pw - (land ? 30 : 14), py = land ? 104 : 96;
-    paperCard(px, py, pw, ph, C.kami, 6, 12);
-    X.font = `400 ${land ? 20 : 16}px ${FONT_POP}`; X.textAlign = 'center'; X.textBaseline = 'middle'; X.fillStyle = '#c2367a';
-    X.fillText('おてほん', px + pw/2, py + (land ? 28 : 22));
-    const s = land ? .74 : .44, gx = px + pw/2, gy = py + (land ? 160 : 100);
-    guideFigure(pose, gx, gy, s, '#f27c9c');
-    ptxt(pose.name, px + pw/2, py + ph - (land ? 96 : 70), land ? 32 : 20);
-    if(mode !== 'camera'){ X.font = `700 ${land ? 17 : 14}px ${FONT_UI}`; X.fillStyle = '#c2367a'; X.fillText(`キー [${(POSES.indexOf(pose) + 1) % 10}]`, px + pw/2, py + ph - (land ? 60 : 44)); }
-    const f = 1 - g.beatT/g.beatLen, bx = px + 20, bw = pw - 40, by = py + ph - (land ? 36 : 26);
-    X.beginPath(); X.roundRect(bx, by, bw, 16, 8); X.fillStyle = C.kami3; X.fill();
-    X.beginPath(); X.roundRect(bx, by, Math.max(16, bw*f), 16, 8); X.fillStyle = f > .78 ? C.shu : '#c2367a'; X.fill();
-    if(g.i + 1 < g.order.length){ X.font = `700 ${land ? 15 : 13}px ${FONT_UI}`; X.fillStyle = C.kami; X.textAlign = 'right'; X.fillText(`つぎ：${POSES[g.order[g.i+1]].name}`, px + pw, py + ph + 22); }
-    meter(24, H - 86, Math.min(300, W - 48), 58, g.match, g.match >= .78 ? C.shu : '#c2367a', `そっくり ${Math.round(g.match*100)}%`);
-    if(g.combo > 1) ptxt(`${g.combo} コンボ`, 174, H - 120, 28, C.shu);
-    if(g.fb && g.fb.t > 0){ X.globalAlpha = clamp(g.fb.t*2, 0, 1); ptxt(g.fb.label, land ? W*.34 : W*.36, 150 - (1 - g.fb.t)*30, land ? 64 : 44, g.fb.col === C.kami3 ? C.sumi : g.fb.col); X.globalAlpha = 1; }
-  },
-  hud:g => ({ time:`${Math.min(g.i+1, g.beats)}/${g.beats}`, frac:1 - g.i/g.beats }),
-  result:g => ({ score:g.score, stats:g.stats, scale:g.beats/12 }),
-  medal:r => tier(r.score, [500, 900, 1300], r.scale),
+  hud:g => ({ score:`${g.pts[0]} − ${g.pts[1]}`, time:`Lv${g.stats.level}`, frac:clamp(1 - Math.max(0, g.k)/g.maxPoses, 0, 1) }),
+  result:g => ({ score:g.pts[0], stats:{ a:g.pts[0], b:g.pts[1], w:g.w ?? (g.pts[0] === g.pts[1] ? -1 : g.pts[0] > g.pts[1] ? 0 : 1), unit:'てん', note:g.lives.some(v => v <= 0) ? 'ミス 3かいで しょうぶ あり！' : `${g.maxPoses}ポーズ ぜんぶ おわり！` }, scale:1 }),
+  medal:() => 0,
 };
+
 function guideFigure(pose, cx, cy, s, col){
   const sh = { l:{ x:cx - 40*s, y:cy }, r:{ x:cx + 40*s, y:cy } }, hy = cy + 120*s;
   pLimb({ x:cx - 24*s, y:hy }, { x:cx - 30*s, y:hy + 110*s }, 20*s, col, 4);
@@ -1514,7 +2087,7 @@ function guideFigure(pose, cx, cy, s, col){
 }
 
 GAMES.hero = {
-  title:'へんしんビーム', short:'りょうてを つきだして ビーム！', color:'#6a55c9', theme:'hero', players:1, tempo:128, icon:'hero',
+  title:'へんしんビーム', short:'りょうてを つきだして ビーム！', color:'#6a55c9', theme:'hero', players:1, song:'hero', icon:'hero',
   how:['りょうてを そろえて まえに つきだすと ビーム', 'むねの まえで うでを クロスすると バリア', 'さいごに おおきな UFO が くるよ'],
   demoHow:['マウスを おしっぱなしで ビーム', 'B キーを おしているあいだ バリア', 'さいごに おおきな UFO が くるよ'],
   duration:show => show ? 35 : 60,
@@ -1532,7 +2105,7 @@ GAMES.hero = {
       g.beamSnd -= dt; if(g.beamSnd <= 0){ sfx.beam(); g.beamSnd = .18; }
     } else g.energy = Math.min(1, g.energy + dt*.3);
     if(!g.boss && prog > .55){
-      g.boss = true; toast('おおきな UFO が きた！', 2);
+      g.boss = true; toast('おおきな UFO が きた！', 2); if(BGM.cur === 'hero') BGM.bpm = 150;
       g.enemies.push({ boss:true, x:W/2, y:-120, tx:W/2, ty:H*.24, hp:1, maxHp:1, dmg:.16, shoot:2, r:84, wob:0, hue:C.shu });
     }
     g.spawn -= dt;
@@ -1605,7 +2178,7 @@ GAMES.hero = {
 };
 
 GAMES.daruma = {
-  title:'だるまさんがころんだ', short:'オニが みていない あいだに すすむ', color:'#e0782a', theme:'daruma', players:1, tempo:96, icon:'daruma',
+  title:'だるまさんがころんだ', short:'オニが みていない あいだに すすむ', color:'#e0782a', theme:'daruma', players:1, song:'daruma', icon:'daruma', pair:'daruma2',
   how:['オニが うしろを むいている あいだに からだを うごかすと すすむ', 'ふりむいたら ピタッと とまる！', 'うごいちゃうと すこし もどされるよ'],
   demoHow:['マウスを うごかすと すすむよ', 'ふりむいたら マウスを とめて ピタッ！', 'うごいちゃうと すこし もどされるよ'],
   duration:show => show ? 50 : 90,
@@ -1679,8 +2252,93 @@ function drawOni(x, y, s, facing){
   X.restore();
 }
 
+GAMES.daruma2 = {
+  title:'ふたりで だるまさん', short:'2人で オニに ちかづく きょうそう', color:'#c4612a', theme:'daruma', players:2, song:'daruma', icon:'daruma', pair:'daruma', lock2:true,
+  how:['2人で ならんで カメラの まえへ', 'オニが うしろを むいている あいだに うごくと すすむ', 'ふりむいた ときに うごくと もどされる！ さきに ゴールした ほうの かち'],
+  demoHow:['ひだりが あなた、みぎは コンピューター', 'マウスを うごかすと すすむ。ふりむいたら とめて ピタッ！', 'さきに ゴールした ほうの かち'],
+  duration:() => 90,
+  init(g){
+    g.pl = [0, 1].map(() => ({ prog:0, stun:0, caught:false, flash:0, strikes:0 }));
+    g.w = null; g.endT = null; g.cpu = { react:0, fidget:false }; g.stats = {};
+    GAMES.daruma.newChant(g);
+  },
+  update(g, dt, ps){
+    const TH = g.D.still;
+    g.pt -= dt;
+    if(g.endT != null){ g.endT -= dt; if(g.endT <= 0) g.over = true; }
+    if(mode !== 'camera') this.cpu(g, dt);
+    g.pl.forEach(s => { s.stun -= dt; s.flash -= dt; });
+    if(g.st === 'chant'){
+      g.pl.forEach((s, i) => {
+        const m = ps[i] ? ps[i].motionS || 0 : 0;
+        if(s.stun <= 0 && g.w == null) s.prog = Math.min(100, s.prog + clamp(m, 0, 1.5)*5*dt);
+        if(s.prog >= 100 && g.w == null){
+          g.w = i; g.endT = 1.8; sfx.fanfare();
+          const x = i ? W*.75 : W*.25; for(let k = 0; k < 3; k++) burst(g, x + rand(-100, 100), H*.4, pick(CONF_COLS), 16);
+          floatText(g, x, H*.42, 'ゴール！', i ? C.fuji : C.shu, 64);
+        }
+      });
+      const n = Math.floor((1 - g.pt/g.dur2)*10); if(n !== g.lastN && n >= 0 && n < 10){ g.lastN = n; sfx.chant(n); }
+      if(g.pt <= 0 && g.w == null){ g.st = 'turn'; g.pt = g.D.hit > 1 ? .6 : .45; }
+    } else if(g.st === 'turn'){
+      if(g.pt <= 0){ g.st = 'watch'; g.pt = rand(1.6, 2.6); g.pl.forEach(s => { s.caught = false; }); }
+    } else if(g.st === 'watch'){
+      g.pl.forEach((s, i) => {
+        const p = ps[i], m = p ? p.motionS || 0 : 0;
+        if(!s.caught && m > TH){
+          s.caught = true; s.strikes++; s.prog = Math.max(0, s.prog - 15); s.stun = 1; s.flash = 1; g.shake = 10; sfx.bad();
+          if(p) floatText(g, p.head.x, p.head.y - 90, 'うごいた！', C.shu, 44);
+        }
+      });
+      if(g.pt <= 0){ GAMES.daruma.newChant(g); sfx.good(); }
+    }
+    g.score = Math.round(g.pl[0].prog);
+  },
+  /* コンピューター：ふりむきに すこし おくれて とまる。たまに がまん できずに うごく */
+  cpu(g, dt){
+    const rg = rigs[1], c = g.cpu, sp = g.D.speed;
+    const wiggle = () => { const a = (.55 + .35*sp)*120, w = 7; rg.px = rg.cx + 40 + Math.sin(T*w)*a; rg.py = 340 + Math.cos(T*w*1.3)*a*.7; };
+    if(g.st === 'chant'){ wiggle(); c.react = rand(.1, .65)/sp; c.fidget = Math.random() < .12/sp; c.fidT = rand(.3, 1.4); }
+    else if(g.st === 'turn' && c.react > 0){ c.react -= dt; wiggle(); }
+    else if(g.st === 'watch' && c.fidget){ c.fidT -= dt; if(c.fidT < 0 && c.fidT > -.25) rg.px += Math.sin(T*40)*30; }
+  },
+  drawBack(g){
+    const ox = W/2, oy = 196;
+    [0, 1].forEach(i => {
+      const sx = i ? 1 : -1, x0 = W/2 + sx*W*.27, x1 = ox + sx*72, y1 = oy + 70, s = g.pl[i], col = i ? C.fuji : C.shu;
+      X.beginPath(); X.moveTo(x0 - 70, H + 10); X.lineTo(x0 + 70, H + 10); X.lineTo(x1 + 16, y1); X.lineTo(x1 - 16, y1); X.closePath();
+      X.fillStyle = i ? 'rgba(141,122,214,.30)' : 'rgba(229,85,63,.24)'; X.fill();
+      const f = s.prog/100, tx = lerp(x0, x1, f), ty = lerp(H - 30, y1 + 6, f), k = 1 - f*.55, hop = Math.abs(Math.sin(T*8))*(g.st === 'chant' ? 6 : 0);
+      pShape(() => { X.beginPath(); X.moveTo(tx - 18*k, ty - hop); X.lineTo(tx + 18*k, ty - hop); X.lineTo(tx, ty - 34*k - hop); X.closePath(); }, col, 3);
+      pCircle(tx, ty - 44*k - hop, 15*k, col, 3);
+      if(s.flash > 0){ X.globalAlpha = s.flash*.5; fCircle(tx, ty - 30*k, 46*k, C.shu); X.globalAlpha = 1; }
+    });
+    drawOni(ox, oy, .72, g.st === 'watch' || (g.st === 'turn' && g.pt < .22));
+  },
+  draw(g, ps){
+    const chars = 'だるまさんがころんだ', ty = 330, sz = Math.min(52, W/14);
+    if(g.st === 'chant'){ const n = clamp(Math.floor((1 - g.pt/g.dur2)*10) + 1, 0, 10); ptxt(chars.slice(0, n), W/2, ty, sz, C.sumi); }
+    else { ptxt('うごいたら アウト！', W/2, ty, sz, C.shu); X.strokeStyle = 'rgba(229,85,63,.55)'; X.lineWidth = 18; X.strokeRect(9, 9, W - 18, H - 18); }
+    const cam = mode === 'camera';
+    g.pl.forEach((s, i) => {
+      const w = Math.min(300, W/2 - 48), x = i ? W - 24 - w : 24;
+      meter(x, H - 86, w, 58, s.prog/100, i ? C.fuji : C.shu, i ? (cam ? 'みぎの ひと' : 'コンピューター') : (cam ? 'ひだりの ひと' : 'あなた'));
+      const p = ps[i], m = p ? clamp((p.motionS || 0)/1.5, 0, 1) : 0, TH = g.D.still/1.5, mx = i ? W - 60 : 14, my = 220, mh = 240;
+      paperCard(mx, my, 46, mh, C.kami, 4, 14);
+      X.beginPath(); X.roundRect(mx + 11, my + 11 + (mh - 22)*(1 - m), 24, (mh - 22)*m, 10); X.fillStyle = m > TH ? C.shu : C.waka; X.fill();
+      X.fillStyle = C.sumi; X.fillRect(mx + 4, my + 11 + (mh - 22)*(1 - TH) - 2, 38, 4);
+    });
+  },
+  hud:g => ({ score:`${Math.round(g.pl[0].prog)} − ${Math.round(g.pl[1].prog)}` }),
+  result:g => {
+    const [a, b] = g.pl.map(s => Math.round(s.prog));
+    return { score:a, stats:{ a, b, w:g.w ?? (a === b ? -1 : a > b ? 0 : 1), unit:'', note:g.w != null ? 'さきに ゴール！' : 'じかん ぎれ。ちかい ほうの かち' }, scale:1 };
+  },
+  medal:() => 0,
+};
+
 GAMES.punch = {
-  title:'パンチでパーン', short:'まとを いきおいよく パンチ！', color:'#c0482f', theme:'punch', players:1, tempo:124, icon:'punch',
+  title:'パンチでパーン', short:'まとを いきおいよく パンチ！', color:'#c0482f', theme:'punch', players:1, song:'punch', icon:'punch',
   how:['でてくる まとを すばやく パンチ', 'きんの まとは 30てん、むらさきの × は うっちゃダメ', 'たいこが でたら 5かい れんだ！'],
   demoHow:['マウスを すばやく まとに とおすと パンチ', 'きんの まとは 30てん、むらさきの × は うっちゃダメ', 'たいこが でたら 5かい れんだ！'],
   duration:show => show ? 30 : 40,
@@ -1743,7 +2401,7 @@ GAMES.punch = {
 };
 
 GAMES.balloon = {
-  title:'ふうせんポンポン', short:'ふうせんを おとさず うちあげる', color:'#2e9da8', theme:'balloon', players:1, tempo:108, icon:'balloon',
+  title:'ふうせんポンポン', short:'ふうせんを おとさず うちあげる', color:'#2e9da8', theme:'balloon', players:1, song:'balloon', icon:'balloon',
   how:['あたまや てで ふうせんを ポーンと うちあげよう', 'ほしの ふうせんは 3てん', 'おとすと ハートが へるよ'],
   demoHow:['マウスで てを うごかして はじこう', 'クリックか スペースで ジャンプ（あたまで うてる）', 'おとすと ハートが へるよ'],
   duration:show => show ? 30 : null,
@@ -1797,7 +2455,7 @@ GAMES.balloon = {
 };
 
 GAMES.versus = {
-  title:'ふたりで たいけつ', short:'2人で ならんで くだものを とりあう', color:'#d9a21a', theme:'versus', players:2, tempo:126, icon:'versus',
+  title:'ふたりで たいけつ', short:'2人で ならんで くだものを とりあう', color:'#d9a21a', theme:'versus', players:2, song:'versus', icon:'versus',
   how:['2人で ならんで カメラの まえへ', 'じぶんの がわの くだものを キャッチ', 'ばくだんは −3てん'],
   demoHow:['ひだりが あなた、みぎは コンピューター', 'じぶんの がわの くだものを キャッチ', 'ばくだんは −3てん'],
   duration:() => 40,
@@ -1836,24 +2494,55 @@ GAMES.versus = {
   medal:() => 0,
 };
 
-/* かけっこ：からだを うごかした りょう（うんどうりょう）だけで はしる。
-   ばしょや ねらいを みないので、カメラの ずれが あっても あそびやすい */
-const RUN_VMAX = 8, RUN_PPM = 64;
+/* かけっこ：うでを ふった かいすうで はしる。1かい ふるごとに RUN_STEP メートル すすむので、
+   ふった かいすうと すすんだ きょりが ぴったり ひれいする（ばしょの せいかくさは いらない） */
+const RUN_STEP = .75, RUN_PPM = 64;
 const runLen = show => show ? 60 : 100;
-function runEff(p){
-  if(!p) return 0;
-  const m = mode === 'camera' ? (p.motionBS || 0) : (p.motionS || 0)/3;   /* マウスは かんたんに はやく うごくので にぶく */
-  return clamp((m - .2)/1.0, 0, 1);            /* .2 までは カメラの ゆれ として むし */
+/* うでふり カウンター：てくびの たかさ（かたからの たかさ ÷ かたはば）が きりかえした ところを 1かい と かぞえる。
+   amp より ちいさな ゆれ（カメラの ぶれ）は かぞえない */
+function makeSwing(){ return { l:{ ext:null, dir:0 }, r:{ ext:null, dir:0 }, n:0, times:[], lastP:null }; }
+function stepSwing(sw, p, now, amp = .22){
+  if(!p || p === sw.lastP) return 0;
+  sw.lastP = p;
+  let c = 0;
+  for(const s of ['l','r']){
+    const k = sw[s], v = (p[s+'Wr'].y - p.shC.y)/p.sw;
+    if(k.ext == null){ k.ext = v; continue; }
+    if(k.dir >= 0){ if(v > k.ext) k.ext = v; else if(k.ext - v > amp){ c++; k.dir = -1; k.ext = v; } }
+    else { if(v < k.ext) k.ext = v; else if(v - k.ext > amp){ c++; k.dir = 1; k.ext = v; } }
+  }
+  for(let j = 0; j < c; j++) sw.times.push(now);
+  sw.n += c;
+  return c;
 }
-function makeRunner(name, col, fox = false){ return { name, col, fox, d:0, v:0, eff:0, step:0, dustT:0, done:false, ft:null }; }
-function stepRunner(g, r, eff, dt, vmax, steps = true){
-  r.eff = clamp(lerp(r.eff, eff, Math.min(1, dt*4)), 0, 1);
-  const target = vmax*Math.pow(r.eff, .8);
-  r.v += (target - r.v)*Math.min(1, dt*(target > r.v ? 2.2 : 1.4));
+function swingRate(sw, now){ while(sw.times.length && sw.times[0] < now - 1.5) sw.times.shift(); return sw.times.length/1.5; }
+function makeRunner(name, col, fox = false){ return { name, col, fox, d:0, v:0, pend:0, rate:0, step:0, dustT:0, done:false, ft:null, sw:makeSwing(), acc:0 }; }
+/* たまった きょりを すこしずつ すすめる（みためが なめらかに なるように） */
+function moveRunner(g, r, dt){
+  const mv = r.done ? 0 : r.pend*(1 - Math.exp(-dt*6));
+  r.pend -= mv;
+  r.v = lerp(r.v, mv/Math.max(dt, 1e-3), Math.min(1, dt*5));
   if(r.done) return;
-  r.d = Math.min(g.len, r.d + r.v*dt);
+  r.d = Math.min(g.len, r.d + mv);
   if(r.d >= g.len){ r.done = true; r.ft = g.t; }
-  if(r.v > .8){ r.step += dt*(1.2 + r.v*.35); if(r.step >= 1){ r.step -= 1; if(steps) sfx.step(); } }
+}
+function swingRunner(g, r, p, dt){
+  const c = stepSwing(r.sw, p, g.t);
+  if(c){ r.pend += c*RUN_STEP; if(!r.done) sfx.step(); }
+  r.rate = swingRate(r.sw, g.t);
+  moveRunner(g, r, dt);
+}
+/* コンピューター：1びょうに rate かい ふる */
+function cpuRunner(g, r, rate, dt){
+  r.acc += rate*dt;
+  while(r.acc >= 1){ r.acc--; r.pend += RUN_STEP; r.sw.n++; r.sw.times.push(g.t); }
+  r.rate = swingRate(r.sw, g.t);
+  moveRunner(g, r, dt);
+}
+function foxRunner(g, r, pace, dt){
+  r.v = pace;
+  if(!r.done){ r.d = Math.min(g.len, r.d + pace*dt); if(r.d >= g.len){ r.done = true; r.ft = g.t; } }
+  r.step = (r.step + dt*(1.2 + pace*.35)) % 1;
 }
 function runDust(g, r, p, dt){
   if(!p || r.v < 1.2) return;
@@ -1929,22 +2618,23 @@ function drawRunStrip(g){
 }
 
 GAMES.run = {
-  title:'かけっこ', short:'その ばで はしって きつねと きょうそう', color:'#3f9a5b', theme:'run', players:1, tempo:132, icon:'run', pair:'run2',
-  how:['その ばで あしぶみ・うでふり！ うごくほど はやく はしる', 'ねらう ばしょは ないよ。とにかく げんきに うごこう', 'きつねより さきに ゴールを めざそう'],
-  demoHow:['マウス（ゆび）を ぶんぶん うごかすと はしるよ', 'はやく うごかすほど スピード アップ', 'きつねより さきに ゴールを めざそう'],
+  title:'かけっこ', short:'うでを ぶんぶん！ きつねと きょうそう', color:'#3f9a5b', theme:'run', players:1, song:'run', icon:'run', pair:'run2',
+  how:['その ばで うでを ぶんぶん ふって はしろう', 'うでを ふった かいすうだけ すすむよ。たくさん はやく ふるほど はやい', 'きつねより さきに ゴールを めざそう'],
+  demoHow:['マウス（ゆび）を うえ・したに ぶんぶん うごかすと はしるよ', 'ふった かいすうだけ すすむよ', 'きつねより さきに ゴールを めざそう'],
   duration:show => show ? 30 : 45,
   init(g){
     g.len = runLen(g.show); g.camD = 0; g.dust = []; g.lines = []; g.endT = null; g.spurt = false; g.idleT = 0;
     g.rs = [makeRunner('あなた', me().color), makeRunner('きつね', '#f39a2b', true)];
-    g.stats = { goal:false, win:false, fast:false, time:0, dist:0 };
+    g.stats = { goal:false, win:false, fast:false, time:0, dist:0, swings:0 };
   },
   update(g, dt, ps){
     const [r, fox] = g.rs, p = ps[0], gap = fox.d - r.d;
-    stepRunner(g, r, runEff(p), dt, RUN_VMAX);
+    swingRunner(g, r, p, dt);
     /* きつねは きまった ペース。はなれすぎると ふりかえって まってくれる */
-    stepRunner(g, fox, 1, dt, 4.6*g.D.speed*(gap > 12 ? .7 : gap < -12 ? 1.15 : 1), false);
+    foxRunner(g, fox, 4.6*g.D.speed*(gap > 12 ? .7 : gap < -12 ? 1.15 : 1), dt);
     g.camD = r.d; runDust(g, r, p, dt); stepDust(g, dt); runLines(g, r.v, dt);
-    g.idleT = r.eff < .08 && !r.done ? g.idleT + dt : 0;
+    if(BGM.cur === 'run') BGM.bpm = 132 + clamp(r.v/8, 0, 1)*56;   /* はやく はしるほど きょくも はやく */
+    g.idleT = r.rate < .7 && !r.done ? g.idleT + dt : 0;
     if(!g.spurt && r.d > g.len*.75){ g.spurt = true; sfx.order(); floatText(g, W/2, H*.36, 'ラストスパート！', C.shu, 52); }
     if(fox.done && !fox.told){ fox.told = true; if(!r.done) floatText(g, W*.7, H*.42, 'きつねが ゴール！', C.cha, 36); }
     if(r.done && g.endT == null){
@@ -1954,7 +2644,7 @@ GAMES.run = {
       floatText(g, W/2, H*.42, g.stats.win ? 'いちばん！' : 'ゴール！', C.shu, 70);
     }
     if(g.endT != null){ g.endT -= dt; if(g.endT <= 0) g.over = true; }
-    g.stats.dist = Math.round(r.d);
+    g.stats.dist = Math.round(r.d); g.stats.swings = r.sw.n;
     g.score = g.stats.dist + (g.stats.goal ? 20 + Math.round(Math.max(0, g.time)*2) : 0) + (g.stats.win ? 20 : 0);
   },
   drawBack(g){
@@ -1969,17 +2659,17 @@ GAMES.run = {
   draw(g){
     drawRunLines(g); drawRunStrip(g);
     const r = g.rs[0];
-    meter(24, H - 86, Math.min(320, W - 48), 58, r.eff, r.eff > .6 ? C.shu : C.waka, `はやさ　あと ${Math.max(0, Math.ceil(g.len - r.d))}m`);
-    if(g.idleT > 1.5 && (T*2|0) % 2) ptxt('もっと うごいて！', W/2, H*.38, Math.min(56, W/12), C.shu);
+    meter(24, H - 86, Math.min(340, W - 48), 58, clamp(r.rate/12, 0, 1), r.rate > 7 ? C.shu : C.waka, `ぶんぶん ${r.sw.n}かい　あと ${Math.max(0, Math.ceil(g.len - r.d))}m`);
+    if(g.idleT > 1.5 && (T*2|0) % 2) ptxt('うでを ふって！', W/2, H*.38, Math.min(56, W/12), C.shu);
   },
   result:g => ({ score:g.score, stats:g.stats, scale:g.len/100 }),
   medal:r => r.stats.win ? (r.stats.fast ? 3 : 2) : r.stats.goal ? 1 : 0,
 };
 
 GAMES.run2 = {
-  title:'ふたりで かけっこ', short:'2人で ならんで その ばで きょうそう', color:'#2f8f8a', theme:'run', players:2, tempo:138, icon:'run', pair:'run',
-  how:['2人で ならんで カメラの まえへ', 'その ばで あしぶみ・うでふり！ うごくほど はやい', 'さきに ゴールした ほうの かち'],
-  demoHow:['ひだりが あなた、みぎは コンピューター', 'マウス（ゆび）を ぶんぶん うごかすと はしるよ', 'さきに ゴールした ほうの かち'],
+  title:'ふたりで かけっこ', short:'2人で うでふり きょうそう', color:'#2f8f8a', theme:'run', players:2, song:'run', icon:'run', pair:'run', lock2:true,
+  how:['2人で ならんで カメラの まえへ', 'うでを ぶんぶん ふった かいすうだけ すすむ', 'さきに ゴールした ほうの かち'],
+  demoHow:['ひだりが あなた、みぎは コンピューター', 'マウス（ゆび）を うえ・したに ぶんぶん うごかすと はしるよ', 'さきに ゴールした ほうの かち'],
   duration:() => 45,
   init(g){
     g.len = runLen(false); g.camD = 0; g.dust = []; g.lines = []; g.endT = null; g.w = null;
@@ -1990,13 +2680,11 @@ GAMES.run2 = {
   update(g, dt, ps){
     const cpu = mode !== 'camera';
     g.rs.forEach((r, i) => {
-      let eff = runEff(ps[i]);
       if(cpu && i === 1){
         const gap = r.d - g.rs[0].d;
-        eff = clamp(.5*g.D.speed + Math.sin(g.t*.7)*.08, 0, 1)*(gap > 10 ? .7 : gap < -10 ? 1.15 : 1);
-        const rg = rigs[1]; rg.px = rg.cx + Math.sin(T*10)*150*r.eff + 60; rg.py = 330 + Math.cos(T*10)*90*r.eff;
-      }
-      stepRunner(g, r, eff, dt, RUN_VMAX, i === 0 || !cpu);
+        cpuRunner(g, r, (6.2*g.D.speed + Math.sin(g.t*.7)*1.2)*(gap > 10 ? .7 : gap < -10 ? 1.15 : 1), dt);
+        const rg = rigs[1]; rg.px = rg.cx + 70; rg.py = 360 + Math.sin(T*Math.max(2, r.rate)*Math.PI/2)*110;
+      } else swingRunner(g, r, ps[i], dt);
       runDust(g, r, ps[i], dt);
       if(r.done && g.w == null){
         g.w = i; g.endT = 1.6; sfx.fanfare();
@@ -2005,6 +2693,7 @@ GAMES.run2 = {
       }
     });
     g.camD = (g.rs[0].d + g.rs[1].d)/2; stepDust(g, dt); runLines(g, (g.rs[0].v + g.rs[1].v)/2, dt);
+    if(BGM.cur === 'run') BGM.bpm = 132 + clamp(Math.max(g.rs[0].v, g.rs[1].v)/8, 0, 1)*56;
     if(g.endT != null){ g.endT -= dt; if(g.endT <= 0) g.over = true; }
     g.score = Math.round(g.rs[0].d);
   },
@@ -2013,7 +2702,7 @@ GAMES.run2 = {
     drawRunLines(g);
     X.save(); X.setLineDash([18, 14]); X.lineWidth = 6; X.strokeStyle = 'rgba(251,246,234,.85)'; seg({ x:W/2, y:200 }, { x:W/2, y:H }); X.stroke(); X.restore();
     drawRunStrip(g);
-    g.rs.forEach((r, i) => { const w = Math.min(280, W/2 - 48), x = i ? W - 24 - w : 24; meter(x, H - 86, w, 58, r.eff, r.col, `はやさ　${Math.round(r.d)}m`); });
+    g.rs.forEach((r, i) => { const w = Math.min(280, W/2 - 48), x = i ? W - 24 - w : 24; meter(x, H - 86, w, 58, clamp(r.rate/12, 0, 1), r.col, `${r.sw.n}かい ${Math.round(r.d)}m`); });
   },
   hud:g => ({ score:`${Math.round(g.rs[0].d)} − ${Math.round(g.rs[1].d)}` }),
   result:g => {
@@ -2045,33 +2734,6 @@ function moveOk(p, id, k){
   }
   return false;
 }
-const DANCE_CH = [
-  { root:130.81, tri:[261.63, 329.63, 392.00] }, { root:98.00, tri:[246.94, 293.66, 392.00] },
-  { root:110.00, tri:[220.00, 261.63, 329.63] }, { root:87.31, tri:[220.00, 261.63, 349.23] },
-];
-const _ = null;
-const MEL_B = [7,_,4,_,0,_,4,_, 2,_,7,_,11,_,7,_, 9,_,12,_,9,_,4,_, 5,_,9,_,12,_,_,_];
-const MEL_C = [12,12,_,7,9,_,7,_, 11,_,14,_,11,7,_,_, 12,_,9,12,16,_,12,_, 9,_,12,_,14,_,12,_];
-function danceSong(g, s, t){
-  const beat = s/2, sec = g.secAt(beat), i = s % 8, ch = DANCE_CH[Math.floor(s/8) % 4], spb = g.spb;
-  if(beat >= g.endBeat) return;
-  if(sec === 'end'){
-    if(beat === g.endBeat - 8){ note(65.4, t, .5, 'sine', .35, -20); [261.63, 329.63, 392, 523.25].forEach(f => note(f, t, 1.6, 'triangle', .05)); noise(t, .5, .08, 3000); }
-    return;
-  }
-  const big = sec === 'C';
-  if(i % 2 === 0 && (big || i % 4 === 0 || sec === 'intro')) note(120, t, .16, 'sine', .34, -70);
-  if(sec !== 'intro' && (i === 2 || i === 6)) noise(t, .13, .1, 1500);
-  noise(t, .03, i % 2 ? .014 : .022, 8000);
-  if(sec === 'intro'){ if(i % 2 === 0 && beat >= 4) note(beat % 4 === 0 ? 1320 : 990, t, .06, 'square', .04); return; }
-  if(i === 0 || i === 3) note(ch.root, t, .2, 'triangle', .1);
-  if(i === 4 || i === 6) note(ch.root*2, t, .12, 'triangle', .06);
-  if(sec === 'B' || big){
-    if(i === 0) ch.tri.forEach(f => note(f, t, spb*3.6, 'sine', .018));
-    const m = (big ? MEL_C : MEL_B)[s % 32];
-    if(m != null) note(523.25*Math.pow(2, m/12), t, big ? .14 : .2, big ? 'square' : 'triangle', big ? .028 : .045);
-  }
-}
 function buildChart(show){
   /* はく（beat）で かく：まえおき 8 → A（1しょうせつに 1こ）→ B（2はくに 1こ）→ C（パンパン いり）→ フィニッシュ */
   const A = show ? 16 : 32, B = show ? 0 : 32, Cn = 32;
@@ -2087,7 +2749,7 @@ function buildChart(show){
   }
   notes.push({ beat:e0, mv:'banzai', fin:true });
   const secAt = b => b < a0 ? 'intro' : b < b0 ? 'A' : b < c0 ? 'B' : b < e0 ? 'C' : 'end';
-  return { notes, secAt, endBeat:end };
+  return { notes, secAt, endBeat:end, c0 };
 }
 function danceLane(){
   const land = W >= H, cw = land ? 184 : 150, ch = land ? 100 : 86;
@@ -2108,7 +2770,7 @@ function drawMoveCard(n, x, y, L, a = 1, sc = 1){
 }
 
 GAMES.dance = {
-  title:'おどって ドン！', short:'おんがくに あわせて おおきく ポーズ', color:'#7b4fc9', theme:'dance', players:1, tempo:112, icon:'dance',
+  title:'おどって ドン！', short:'おんがくに あわせて おおきく ポーズ', color:'#7b4fc9', theme:'dance', players:1, icon:'dance',
   how:['したから カードが のぼってくるよ', 'カードが まるに きたら その ポーズ！ すこし ずれても だいじょうぶ', 'つづけて できると コンボ。10コンボで フィーバー！'],
   demoHow:['キーボードの ↑ ← → ↓ と W で ポーズ', 'カードが まるに きたら その キーを おす', 'つづけて できると コンボ。10コンボで フィーバー！'],
   duration:() => null,
@@ -2120,11 +2782,10 @@ GAMES.dance = {
     g.songT = 0; g.base = null; g.songEnd = g.endBeat*g.spb; g.combo = 0; g.fever = false; g.clapArmed = true; g.fb = null; g.lastBeat = -1; g.pulse = 0;
     g.stats = { perfect:0, good:0, miss:0, hits:0, total:g.notes.length, maxCombo:0 };
   },
-  music(g){ g.base = null; BGM.start(g.tempo, (s, t) => danceSong(g, s, t), g.songT); },
+  music(g){ syncMusic(g, 'dance'); },
   update(g, dt, ps){
     /* とけいは おとの とけい（actx）に あわせる。おとが ないときは フレームの じかん */
-    if(actx && actx.state === 'running'){ if(g.base == null) g.base = actx.currentTime - g.songT; g.songT = actx.currentTime - g.base; }
-    else { g.base = null; g.songT += dt; }
+    syncClock(g, dt);
     const p = ps[0], k = g.D.hit, beat = g.songT/g.spb, bi = Math.floor(beat);
     if(bi !== g.lastBeat){ g.lastBeat = bi; g.pulse = 1; }
     g.pulse = Math.max(0, g.pulse - dt*3.2);
@@ -2213,26 +2874,331 @@ GAMES.dance = {
   medal:r => { const f = r.stats.total ? r.stats.hits/r.stats.total : 0; return f >= .9 ? 3 : f >= .7 ? 2 : f >= .45 ? 1 : 0; },
 };
 
-const GAME_ORDER = ['catch','pose','hero','daruma','run','dance','punch','balloon','versus'];
-const SHOW_POOL = ['catch','pose','hero','daruma','run','dance','punch','balloon'];
+/* ---------------- 2人で たいせん：キリガミ バトル ----------------
+   パンチは とんでいくので、あいてに とどかせる ための せいかくさは いらない。
+   かちまけは「はやく うつ」「ちょうど よく ガードする」「ゲージを ためて ひっさつわざ」で きまる */
+const isCross = p => { const hm = mid(p.lWr, p.rWr); return p.lWr.x > p.rWr.x + p.sw*.15 && dist(hm, p.shC) < p.sw*.95 && hm.y < p.hipC.y; };
+const sideName = i => mode === 'camera' ? (i ? 'みぎの ひと' : 'ひだりの ひと') : (i ? 'コンピューター' : 'あなた');
+function drawFist(x, y, r, col, dir){
+  X.save(); X.translate(x, y); X.scale(dir, 1);
+  pShape(() => { X.beginPath(); X.roundRect(-r, -r*.8, r*1.9, r*1.6, r*.5); }, col, 4);
+  X.strokeStyle = 'rgba(42,34,51,.35)'; X.lineWidth = 3;
+  for(let k = 0; k < 3; k++){ X.beginPath(); X.moveTo(r*.45, -r*.5 + k*r*.5); X.lineTo(r*.85, -r*.5 + k*r*.5); X.stroke(); }
+  pShape(() => { X.beginPath(); X.ellipse(-r*.2, -r*.75, r*.42, r*.22, 0, 0, TAU); }, col, 3);
+  X.restore();
+}
+GAMES.fight = {
+  title:'キリガミ バトル', short:'パンチで こうげき、クロスで ガード！', color:'#c8323c', theme:'fight', players:2, song:'fight', icon:'fight', lock2:true,
+  how:['2人で ならんで カメラの まえへ', 'あいての ほうへ すばやく パンチ → パンチが とんでいく！', 'うでを むねの まえで クロスすると ガード。ゲージ MAXで バンザイ → ひっさつわざ！'],
+  demoHow:['ひだりが あなた、みぎは コンピューター', 'マウスを みぎへ すばやく うごかすと パンチ', '↓ で ガード。ゲージ MAXで ↑ を ながおし → ひっさつわざ'],
+  duration:() => 60,
+  init(g){
+    g.f = [0, 1].map(() => ({ hp:100, gauge:0, cd:0, guard:false, guardT:9, upT:0, flash:0 }));
+    g.shots = []; g.ko = null; g.endT = null; g.flash = 0; g.cpu = { t:1.4, guard:0, punchT:0 }; g.stats = {};
+  },
+  update(g, dt, ps){
+    if(g.endT != null){ g.endT -= dt; if(g.endT <= 0) g.over = true; }
+    g.f.forEach((f, i) => {
+      const p = ps[i], dir = i ? -1 : 1; if(!p) return;
+      f.cd -= dt; f.flash -= dt;
+      const gd = isCross(p);
+      if(gd && !f.guard) f.guardT = 0;
+      f.guard = gd; f.guardT += dt;
+      if(g.ko != null) return;
+      if(!gd && f.cd <= 0){
+        for(const s of ['l', 'r']){
+          const v = p[s+'V'], sp = p[s+'Sp'];
+          if(sp > p.sw*3.4 && v.x*dir > sp*.55){
+            const w = p[s+'Wr'];
+            g.shots.push({ x:w.x, y:w.y, vx:dir*1050, o:i, kind:'p', dmg:8, r:24 });
+            f.cd = .42; sfx.swish(); break;
+          }
+        }
+      }
+      f.upT = handsUp(p) ? f.upT + dt : 0;
+      if(f.gauge >= 100 && f.upT > .35){
+        f.gauge = 0; f.upT = 0;
+        g.shots.push({ x:p.shC.x + dir*p.sw, y:p.shC.y - p.sw*.2, vx:dir*640, o:i, kind:'sp', dmg:25, r:62, rot:0 });
+        g.flash = .6; sfx.big(); floatText(g, p.head.x, p.head.y - 120, 'ひっさつ！', C.yama, 60);
+      }
+    });
+    if(mode !== 'camera') this.cpu(g, dt, ps);
+    for(let k = g.shots.length - 1; k >= 0; k--){
+      const s = g.shots[k], ti = 1 - s.o, tp = ps[ti], tf = g.f[ti];
+      s.x += s.vx*dt; if(s.kind === 'sp') s.rot += dt*8;
+      if(!tp){ if(s.x < -150 || s.x > W + 150) g.shots.splice(k, 1); continue; }
+      s.y += (tp.shC.y + tp.sw*.35 - s.y)*Math.min(1, dt*4);
+      const front = tp.shC.x - Math.sign(s.vx)*tp.sw*.45;
+      if((s.vx > 0 && s.x >= front) || (s.vx < 0 && s.x <= front)){
+        if(g.ko != null){ g.shots.splice(k, 1); continue; }
+        if(tf.guard){
+          if(s.kind === 'p' && tf.guardT < .3){
+            /* ちょうど よく ガード → はねかえす */
+            s.o = ti; s.vx = -s.vx*1.2; s.dmg = Math.round(s.dmg*1.5); tf.gauge = Math.min(100, tf.gauge + 15);
+            sfx.perfect(); floatText(g, s.x, s.y - 60, 'ジャストガード！', C.mizu, 40); burst(g, s.x, s.y, C.mizu, 14);
+            continue;
+          }
+          tf.hp -= s.kind === 'sp' ? 8 : 0; tf.gauge = Math.min(100, tf.gauge + 6);
+          sfx.pop(); floatText(g, s.x, s.y - 50, 'ガード！', C.mizu, 34); burst(g, s.x, s.y, C.kami, 8);
+        } else {
+          tf.hp -= s.dmg; tf.flash = .3; g.f[s.o].gauge = Math.min(100, g.f[s.o].gauge + (s.kind === 'sp' ? 0 : 12));
+          g.shake = s.kind === 'sp' ? 26 : 12; sfx.hit();
+          floatText(g, s.x, s.y - 60, s.kind === 'sp' ? 'ドカーン！' : 'バシッ！', s.o ? C.fuji : C.shu, s.kind === 'sp' ? 64 : 44);
+          burst(g, s.x, s.y, s.o ? C.fuji : C.shu, s.kind === 'sp' ? 30 : 14);
+        }
+        g.shots.splice(k, 1);
+        if(tf.hp <= 0 && g.ko == null){ tf.hp = 0; g.ko = ti; g.endT = 2.4; g.flash = 1; sfx.fanfare(); BGM.stop(); }
+        continue;
+      }
+      if(s.x < -150 || s.x > W + 150) g.shots.splice(k, 1);
+    }
+    g.flash = Math.max(0, g.flash - dt*2);
+    g.score = Math.ceil(g.f[0].hp);
+  },
+  /* コンピューター：ときどき パンチ、とんでくる パンチを みて ガード、ゲージが たまったら ひっさつ */
+  cpu(g, dt, ps){
+    const c = g.cpu, rg = rigs[1], f = g.f[1], p = ps[1]; if(!p) return;
+    const lv = g.D.speed;
+    if(g.ko != null){ rg.cross = false; rg.armMode = 'pointer'; return; }
+    for(const s of g.shots) if(s.o === 0 && !s.seen && Math.abs(s.x - p.shC.x) < 420){ s.seen = true; if(Math.random() < .25 + .3*lv) c.guard = rand(.35, .7); }
+    if(c.guard > 0){ c.guard -= dt; rg.cross = true; } else rg.cross = false;
+    if(f.gauge >= 100 && !rg.cross){ rg.armMode = 'preset'; rg.target = POSE_BY.banzai; return; }
+    if(rg.armMode === 'preset'){ rg.armMode = 'pointer'; rg.px = rg.cx + 70; rg.py = 380; }
+    c.t -= dt; c.punchT -= dt;
+    if(c.t <= 0 && !rg.cross){ c.t = rand(.6, 1.5)/lv; c.punchT = .15; rg.px = rg.cx - 300; rg.py = rand(280, 360); }
+    else if(c.punchT <= 0){ rg.px = lerp(rg.px, rg.cx + 70, Math.min(1, dt*5)); rg.py = lerp(rg.py, 380, Math.min(1, dt*5)); }
+  },
+  drawBack(g, ps){
+    g.f.forEach((f, i) => {
+      const p = ps[i]; if(!p) return;
+      if(f.flash > 0){ X.globalAlpha = f.flash*1.4; fCircle(p.shC.x, p.shC.y + p.sw*.3, p.sw*1.3, C.shu); X.globalAlpha = 1; }
+      if(f.guard){
+        const cx = p.shC.x + (i ? -1 : 1)*p.sw*.6, cy = p.shC.y + p.sw*.3, r = p.sw*1.2;
+        X.globalAlpha = .35; fCircle(cx, cy, r, C.mizu); X.globalAlpha = 1;
+        X.save(); X.setLineDash([14, 10]); X.lineDashOffset = -T*60; X.strokeStyle = C.kami; X.lineWidth = 6; X.beginPath(); X.arc(cx, cy, r, 0, TAU); X.stroke(); X.restore();
+      }
+    });
+  },
+  draw(g){
+    for(const s of g.shots){
+      const col = s.o ? C.fuji : C.shu, dir = Math.sign(s.vx);
+      X.globalAlpha = .3; for(let k = 1; k <= 3; k++) fCircle(s.x - dir*k*s.r*.8, s.y, s.r*(1 - k*.2), col); X.globalAlpha = 1;
+      if(s.kind === 'sp'){ X.save(); X.translate(s.x, s.y); X.rotate(s.rot); pShape(() => starPath(0, 0, s.r, .45), C.yama, 6); pShape(() => starPath(0, 0, s.r*.55, .45), col, 4); X.restore(); }
+      else drawFist(s.x, s.y, s.r, col, dir);
+    }
+    const bw = Math.min(W*.36, 440), y = 96;
+    g.f.forEach((f, i) => {
+      const x = i ? W - 24 - bw : 24, col = i ? C.fuji : C.shu, full = f.gauge >= 100;
+      paperCard(x - 6, y - 6, bw + 12, 78, C.kami, 4, 10);
+      X.font = `700 15px ${FONT_UI}`; X.textBaseline = 'middle'; X.fillStyle = C.sumi; X.textAlign = i ? 'right' : 'left';
+      X.fillText(sideName(i), i ? x + bw - 4 : x + 4, y + 8);
+      X.textAlign = i ? 'left' : 'right'; X.fillText(`HP ${Math.max(0, Math.ceil(f.hp))}`, i ? x + 4 : x + bw - 4, y + 8);
+      const hw = (bw - 8)*clamp(f.hp/100, 0, 1), gw = (bw - 8)*f.gauge/100;
+      X.fillStyle = C.kami3; X.beginPath(); X.roundRect(x + 4, y + 20, bw - 8, 20, 8); X.fill();
+      X.fillStyle = f.hp < 30 ? C.shu : col; X.beginPath(); X.roundRect(i ? x + 4 + (bw - 8 - hw) : x + 4, y + 20, Math.max(8, hw), 20, 8); X.fill();
+      X.fillStyle = C.kami3; X.beginPath(); X.roundRect(x + 4, y + 46, bw - 8, 14, 7); X.fill();
+      X.fillStyle = full ? ((T*6 | 0) % 2 ? C.yama : '#ffe08a') : C.yama; X.beginPath(); X.roundRect(i ? x + 4 + (bw - 8 - gw) : x + 4, y + 46, Math.max(6, gw), 14, 7); X.fill();
+      if(full) ptxt(mode === 'camera' ? 'バンザイで ひっさつ！' : (i ? 'ひっさつ じゅんび！' : '↑ ながおしで ひっさつ！'), x + bw/2, y + 98, 22, C.shu);
+    });
+    ptxt('VS', W/2, 126, 44, C.yama);
+    if(g.ko != null) ptxt('K.O.!', W/2, H*.42, Math.min(150, W/6), C.shu);
+    if(g.flash > 0){ X.fillStyle = `rgba(255,255,255,${g.flash*.45})`; X.fillRect(0, 0, W, H); }
+  },
+  hud:g => ({ score:`${Math.max(0, Math.ceil(g.f[0].hp))} − ${Math.max(0, Math.ceil(g.f[1].hp))}` }),
+  result:g => {
+    const [a, b] = g.f.map(f => Math.max(0, Math.ceil(f.hp)));
+    return { score:a, stats:{ a, b, w:g.ko != null ? 1 - g.ko : a === b ? -1 : a > b ? 0 : 1, unit:'', note:g.ko != null ? 'K.O.！' : 'じかん ぎれ。HPが おおい ほうの かち' }, scale:1 };
+  },
+  medal:() => 0,
+};
+
+/* ---------------- 2人で たいせん：ビーチバレー ----------------
+   ボールは レシーブする ひとの ところへ じぶんから とんでくる（ばしょの せいかくさは いらない）。
+   レシーブは タイミング、アタックは ふりおろし（か ジャンプ）、ゲージを ためると スーパーアタック */
+function makeJump(){ return { base:null, up:false, lastP:null }; }
+function stepJump(j, p){
+  if(!p || p === j.lastP) return false;
+  j.lastP = p;
+  const y = p.shC.y;
+  if(j.base == null){ j.base = y; return false; }
+  const d = j.base - y;
+  if(!j.up && d > p.sw*.32){ j.up = true; return true; }
+  if(j.up && d < p.sw*.12) j.up = false;
+  if(!j.up) j.base = lerp(j.base, y, .08);
+  return false;
+}
+/* アタック：あたまより うえに あげた てを いきおいよく ふりおろす か、ジャンプ */
+function volleyHit(tr, p, now){
+  const jumped = stepJump(tr.jp, p);
+  if(!p || p === tr.lastA) return jumped;
+  tr.lastA = p;
+  let hit = jumped;
+  for(const s of ['l', 'r']){
+    if(p[s+'Wr'].y < p.head.y - p.faceR*.2) tr['up' + s] = now;
+    if(p[s+'V'].y > p.sw*2.8 && now - (tr['up' + s] ?? -9) < .4) hit = true;
+  }
+  return hit;
+}
+/* レシーブ：りょうてを あわせる か バンザイ（カメラなしの ときは ↓キーの クロスで あわせる） */
+const recvPose = (p, k, i) => (mode === 'camera' ? dist(p.lWr, p.rWr) < p.sw*1.05*k : rigs[i].cross) || handsUp(p);
+function drawBall(x, y, r, rot){
+  X.save(); X.translate(x, y); X.rotate(rot);
+  pCircle(0, 0, r, C.kami, 5);
+  [C.shu, C.yama, C.mizu].forEach((c, k) => { X.beginPath(); X.moveTo(0, 0); X.arc(0, 0, r, k*2*TAU/6, (k*2 + 1)*TAU/6); X.closePath(); X.fillStyle = c; X.fill(); });
+  fCircle(0, 0, r*.2, C.kami);
+  X.restore();
+}
+GAMES.volley = {
+  title:'ビーチバレー', short:'レシーブ → アタック！ ためて スーパーアタック', color:'#e8892b', theme:'volley', players:2, song:'volley', icon:'volley', lock2:true,
+  how:['ボールが まるに きた ときに りょうてを あわせる（か バンザイ）で レシーブ', 'ボールが うえに あがったら、てを うえから ふりおろして アタック！', 'その あいだ うでを ぶんぶん ふると ゲージが たまる。MAXで スーパーアタック'],
+  demoHow:['ボールが まるに きたら ↓ か ↑ キーで レシーブ', 'うえに あがったら クリック・スペース（ジャンプ）で アタック', 'マウスを うえ・したに ぶんぶんで ゲージ アップ'],
+  duration:() => 120,
+  init(g){
+    g.sc = [0, 0]; g.gauge = [0, 0]; g.goal = 7; g.w = null; g.endT = null; g.stats = {};
+    g.tr = [0, 1].map(() => ({ sw:makeSwing(), jp:makeJump(), lastA:null, armed:true, hit:false }));
+    g.ball = { x:W*.25, y:200, r:34, rot:0, vy:0 }; g.trail = []; g.cpu = {};
+    this.serve(g, Math.random() < .5 ? 0 : 1);
+  },
+  serve(g, side){ g.st = 'serve'; g.side = side; g.stT = 0; g.cpu.at = rand(1, 1.8); sfx.whistle(); },
+  launch(g, from, power){
+    const sup = power >= 1;
+    g.st = 'fly'; g.side = 1 - from;
+    g.fl = { x0:g.ball.x, y0:g.ball.y, tt:0, T:(sup ? .8 : lerp(1.75, 1.0, power))/Math.sqrt(g.D.speed), sup, h:sup ? 60 : 170 - power*70 };
+    g.win = (sup ? .5 : .78)*g.D.hit;
+    g.tr[g.side].armed = false;
+    if(mode !== 'camera' && g.side === 1){
+      const pr = clamp(.97 - power*.42 - (sup ? .22 : 0), .2, .95)*(.85 + (g.D.speed - 1)*.6);
+      g.cpu.recvAt = Math.random() < pr ? g.fl.T - rand(.05, g.win*.75) : null;
+    }
+  },
+  receive(g, p, nice){
+    g.st = 'pop'; g.popT = 0; g.pop0 = { x:g.ball.x, y:g.ball.y };
+    g.gauge[g.side] = Math.min(100, g.gauge[g.side] + (nice ? 25 : 15));
+    sfx.pop(); burst(g, g.ball.x, g.ball.y, C.yama, 8);
+    floatText(g, p.head.x, p.head.y - 100, nice ? 'ナイス レシーブ！' : 'レシーブ！', nice ? C.shu : C.mizu, nice ? 40 : 34);
+    if(mode !== 'camera' && g.side === 1) g.cpu.atk = rand(.55, 1.3);
+  },
+  attack(g, ps, auto){
+    const side = g.side, full = g.gauge[side] >= 100, power = auto ? .1 : full ? 1 : .3 + .7*g.gauge[side]/100, p = ps[side];
+    if(!auto) g.gauge[side] = 0;
+    if(auto) floatText(g, g.ball.x, g.ball.y - 50, 'えいっ', C.sumi, 28);
+    else {
+      sfx.hit(); g.shake = full ? 18 : 8;
+      if(full){ sfx.big(); g.flash = .5; }
+      floatText(g, p ? p.head.x : g.ball.x, (p ? p.head.y : g.ball.y) - 120, full ? 'スーパー アタック！！' : 'アタック！', full ? C.shu : C.cha, full ? 48 : 40);
+    }
+    this.launch(g, side, power);
+  },
+  point(g, scorer){
+    g.st = 'point'; g.ptT = 0; g.scorer = scorer; g.sc[scorer]++; g.ball.vy = 150;
+    sfx.bad(); g.shake = 8;
+    const x = scorer ? W*.75 : W*.25; floatText(g, x, H*.34, 'ポイント！', scorer ? C.fuji : C.shu, 56); burst(g, x, H*.34, pick(CONF_COLS), 18);
+    if(g.sc[scorer] >= g.goal){ g.w = scorer; g.endT = 2.2; sfx.fanfare(); }
+  },
+  update(g, dt, ps){
+    if(g.endT != null){ g.endT -= dt; if(g.endT <= 0){ g.over = true; return; } }
+    const b = g.ball, k = g.D.hit;
+    b.rot += dt*(g.st === 'fly' && g.fl.sup ? 18 : 6);
+    g.flash = Math.max(0, (g.flash || 0) - dt*2);
+    g.tr.forEach((tr, i) => { const p = ps[i]; tr.hit = volleyHit(tr, p, g.t); if(p && !recvPose(p, k, i)) tr.armed = true; });
+    if(mode !== 'camera') this.cpu(g, dt, ps);
+    if(g.st === 'serve'){
+      const p = ps[g.side]; g.stT += dt;
+      if(p){ b.x = lerp(b.x, p.shC.x + (g.side ? -1 : 1)*p.sw*.7, Math.min(1, dt*6)); b.y = lerp(b.y, p.head.y - p.faceR*2.4, Math.min(1, dt*6)); }
+      if((g.tr[g.side].hit && g.stT > .6) || g.stT > 4.5) this.attack(g, ps, !g.tr[g.side].hit);
+    } else if(g.st === 'fly'){
+      const f = g.fl, p = ps[g.side]; f.tt += dt;
+      const u = f.tt/f.T, x1 = p ? p.shC.x : (g.side ? W*.75 : W*.25), y1 = p ? p.shC.y + p.sw*.45 : H*.6;
+      b.x = lerp(f.x0, x1, Math.min(u, 1.2)); b.y = Math.max(100, lerp(f.y0, y1, Math.min(u, 1)) - f.h*4*Math.min(u, 1)*(1 - Math.min(u, 1))) + Math.max(0, u - 1)*f.T*600;
+      if(f.sup){ g.trail.push({ x:b.x, y:b.y, life:.35 }); }
+      const inWin = f.tt >= f.T - g.win && f.tt <= f.T + .16;
+      if(p && inWin && g.tr[g.side].armed && recvPose(p, k, g.side)) this.receive(g, p, Math.abs(f.tt - f.T) < .3);
+      else if(f.tt > f.T + .16) this.point(g, 1 - g.side);
+    } else if(g.st === 'pop'){
+      const p = ps[g.side], tr = g.tr[g.side]; g.popT += dt;
+      const ax = p ? p.shC.x + (g.side ? -1 : 1)*p.sw*.3 : b.x, top = Math.max(150, p ? p.head.y - p.sw*1.7 : 180);
+      if(g.popT < .7){ const e = 1 - Math.pow(1 - g.popT/.7, 2); b.x = lerp(g.pop0.x, ax, e); b.y = lerp(g.pop0.y, top, e); }
+      else { b.x = lerp(b.x, ax, Math.min(1, dt*5)); b.y = top + Math.pow(g.popT - .7, 2)*260; }
+      const c = p ? stepSwing(tr.sw, p, g.t) : 0;
+      if(c && g.gauge[g.side] < 100){ g.gauge[g.side] = Math.min(100, g.gauge[g.side] + c*6); if(g.gauge[g.side] >= 100){ sfx.order(); floatText(g, ax, top - 70, 'MAX！', C.shu, 40); } }
+      if(g.popT >= .45 && tr.hit) this.attack(g, ps, false);
+      else if(g.popT > 1.8) this.attack(g, ps, true);
+    } else if(g.st === 'point'){
+      g.ptT += dt; b.vy += 1500*dt; b.y += b.vy*dt;
+      if(b.y > H*.9){ b.y = H*.9; b.vy *= -.45; }
+      if(g.ptT > 1.7 && g.endT == null) this.serve(g, g.scorer);
+    }
+    g.trail = g.trail.filter(t => (t.life -= dt) > 0);
+    g.score = g.sc[0];
+  },
+  /* コンピューター */
+  cpu(g, dt, ps){
+    const rg = rigs[1], c = g.cpu;
+    rg.cross = false;
+    if(g.st === 'serve' && g.side === 1){ c.at -= dt; if(c.at <= 0 && rg.jumpT < 0 && g.stT > .6){ rg.jumpT = 0; c.at = 99; } }
+    if(g.st === 'fly' && g.side === 1 && c.recvAt != null && g.fl.tt >= c.recvAt) rg.cross = true;
+    if(g.st === 'pop' && g.side === 1){
+      rg.px = rg.cx + 60; rg.py = 400 + Math.sin(T*15)*70;
+      c.atk -= dt; if(c.atk <= 0 && rg.jumpT < 0){ rg.jumpT = 0; c.atk = 99; }
+    } else { rg.px = lerp(rg.px, rg.cx + 70, Math.min(1, dt*4)); rg.py = lerp(rg.py, 380, Math.min(1, dt*4)); }
+  },
+  drawBack(g){
+    const nx = W/2, top = H*.36, nh = H*.2;
+    pLimb({ x:nx, y:H*.94 }, { x:nx, y:top - 12 }, 10, C.kami3, 4);
+    X.fillStyle = 'rgba(251,246,234,.22)'; X.fillRect(nx - 18, top, 36, nh);
+    X.strokeStyle = 'rgba(251,246,234,.75)'; X.lineWidth = 2;
+    for(let y = top; y <= top + nh; y += 12){ X.beginPath(); X.moveTo(nx - 18, y); X.lineTo(nx + 18, y); X.stroke(); }
+    for(let x = nx - 18; x <= nx + 18; x += 9){ X.beginPath(); X.moveTo(x, top); X.lineTo(x, top + nh); X.stroke(); }
+    X.fillStyle = C.kami; X.fillRect(nx - 20, top - 6, 40, 10);
+    const b = g.ball, gy = H*.92;
+    X.globalAlpha = .22; X.fillStyle = '#7a5a2a'; X.beginPath(); X.ellipse(b.x, gy, b.r*clamp(1.3 - (gy - b.y)/700, .5, 1.3), 9, 0, 0, TAU); X.fill(); X.globalAlpha = 1;
+  },
+  draw(g, ps){
+    if(g.st === 'fly'){
+      const f = g.fl, p = ps[g.side];
+      if(p){
+        const left = f.T - f.tt, x = p.shC.x, y = p.shC.y + p.sw*.45;
+        if(left < g.win + .55 && left > -.16){
+          const inWin = left <= g.win, r = 34 + Math.max(0, left)*95;
+          X.strokeStyle = inWin ? C.yama : 'rgba(251,246,234,.85)'; X.lineWidth = 7; X.beginPath(); X.arc(x, y, r, 0, TAU); X.stroke();
+          X.strokeStyle = 'rgba(251,246,234,.9)'; X.lineWidth = 3; X.beginPath(); X.arc(x, y, 34, 0, TAU); X.stroke();
+          if(inWin) ptxt('レシーブ！', x, y - r - 28, 30, C.shu);
+          if(!g.tr[g.side].armed) ptxt('いちど てを はなして！', x, y + r + 30, 22, C.sumi);
+        }
+      }
+    }
+    if(g.st === 'pop' && g.popT >= .45){ const p = ps[g.side]; if(p) ptxt('アタック！', p.head.x, p.head.y - p.faceR - 70 - Math.sin(T*10)*6, 36, C.shu); }
+    if(g.st === 'serve' && g.stT > .6){
+      const how = mode === 'camera' ? 'てを うえから ふりおろして サーブ！' : 'クリックか スペースで サーブ！';
+      ptxt(mode !== 'camera' && g.side === 1 ? 'コンピューターの サーブ' : `${sideName(g.side)}の サーブ：${how}`, W/2, 206, 24, C.sumi);
+    }
+    paperCard(W/2 - 110, 92, 220, 76, C.kami, 5, 12);
+    ptxt(String(g.sc[0]), W/2 - 52, 124, 44, C.shu); ptxt('−', W/2, 124, 30, C.sumi); ptxt(String(g.sc[1]), W/2 + 52, 124, 44, C.fuji);
+    X.font = `700 13px ${FONT_UI}`; X.textAlign = 'center'; X.textBaseline = 'middle'; X.fillStyle = C.sumi; X.fillText(`${g.goal}てん さきどり`, W/2, 156);
+    g.gauge.forEach((v, i) => {
+      const w = Math.min(280, W/2 - 60), x = i ? W - 24 - w : 24;
+      meter(x, H - 86, w, 58, v/100, v >= 100 ? C.shu : C.yama, v >= 100 ? 'スーパー！' : sideName(i));
+    });
+    for(const t of g.trail){ X.globalAlpha = t.life*1.6; fCircle(t.x, t.y, g.ball.r*(.6 + t.life), t.life > .2 ? C.yama : C.shu); }
+    X.globalAlpha = 1;
+    drawBall(g.ball.x, g.ball.y, g.ball.r, g.ball.rot);
+    if(g.flash > 0){ X.fillStyle = `rgba(255,236,170,${g.flash*.5})`; X.fillRect(0, 0, W, H); }
+  },
+  hud:g => ({ score:`${g.sc[0]} − ${g.sc[1]}` }),
+  result:g => {
+    const [a, b] = g.sc;
+    return { score:a, stats:{ a, b, w:g.w ?? (a === b ? -1 : a > b ? 0 : 1), unit:'', note:g.w != null ? `${g.goal}てん さきどり！` : 'じかん ぎれ' }, scale:1 };
+  },
+  medal:() => 0,
+};
+
+const GAME_GROUPS = [
+  { title:'ひとりで あそぶ（1〜2人の えんもくも あるよ）', ids:['catch','pose','hero','daruma','run','dance','punch','balloon'] },
+  { title:'ふたりで たいせん', ids:['fight','volley','versus'] },
+];
+const SHOW_POOL = GAME_GROUPS[0].ids;
 for(const id in GAMES) GAMES[id].id = id;
 
-/* きょうの おだい（日付で きまる） */
-const CHALLENGES = [
-  { game:'catch',   text:'くだものキャッチで 25てん いじょう',         ok:r => r.score >= 25 },
-  { game:'catch',   text:'くだものキャッチで おだいフルーツを 6こ',    ok:r => r.stats.order >= 6 },
-  { game:'pose',    text:'ポーズでピタッで「ピタッ！」を 4かい',      ok:r => r.stats.perfect >= 4 },
-  { game:'hero',    text:'へんしんビームで 60てん いじょう',           ok:r => r.score >= 60 },
-  { game:'hero',    text:'へんしんビームの バリアで 5かい ふせぐ',     ok:r => r.stats.blocks >= 5 },
-  { game:'daruma',  text:'だるまさんがころんだで ゴールする',          ok:r => r.stats.win },
-  { game:'daruma',  text:'だるまさんで 1かいも つかまらずに ゴール',  ok:r => r.stats.win && r.stats.strikes === 0 },
-  { game:'punch',   text:'パンチでパーンで パンチりょく 60 いじょう', ok:r => r.stats.maxPow >= 60 },
-  { game:'punch',   text:'パンチでパーンで たいこを 1かい たたききる', ok:r => r.stats.drums >= 1 },
-  { game:'balloon', text:'ふうせんポンポンで 15かい うつ',             ok:r => r.stats.hits >= 15 },
-  { game:'run',     text:'かけっこで きつねより さきに ゴール',        ok:r => r.stats.win },
-  { game:'dance',   text:'おどって ドン！で 10コンボ',                 ok:r => r.stats.maxCombo >= 10 },
-];
-function todayChallenge(){ return CHALLENGES[Math.floor(seeded(hashStr(todayKey()))()*CHALLENGES.length)]; }
 function nextUnlock(pr){
   const list = COS_IDS.map(id => ({ id, ...COS[id] })).sort((a, b) => a.cost - b.cost);
   const nx = list.find(c => c.cost > pr.stickers); if(!nx) return null;
@@ -2256,7 +3222,6 @@ function newG(id, show){
   g.time = g.dur || 0; def.init(g); return g;
 }
 function startProgram(id, show = null){
-  BGM.stop();
   RUN = { id, show, g:newG(id, !!show), phase:'intro', upT:0, lostT:0, backT:0, flash:0 };
   demoOut = []; camOut = []; go('intro');
 }
@@ -2264,6 +3229,7 @@ function startShow(){ const list = shuffle(SHOW_POOL).slice(0, 3); startProgram(
 function beginCount(n = 3){ if(!RUN) return; RUN.phase = 'count'; RUN.countT = n; RUN.lastCount = null; go('play'); }
 function pauseRun(reason){
   if(!RUN || RUN.phase !== 'play') return;
+  RUN.musStep = BGM.song && !BGM.song.time ? BGM.step : 0;
   RUN.phase = 'pause'; RUN.pauseReason = reason; RUN.backT = 0; BGM.stop(); go('pause');
 }
 function endProgram(){
@@ -2274,7 +3240,7 @@ function endProgram(){
     RUN.show.results.push(RUN.last);
     if(RUN.show.idx < RUN.show.list.length - 1){ RUN.phase = 'inter'; sfx.fanfare(); go('inter'); return; }
   }
-  RUN.phase = 'kime'; RUN.kimeT = 3.6; RUN.captured = false; go('play');
+  RUN.phase = 'kime'; RUN.kimeT = 3.6; RUN.captured = false; BGM.start('kime'); go('play');
 }
 function nextInShow(){
   RUN.show.idx++; const id = RUN.show.list[RUN.show.idx];
@@ -2288,11 +3254,9 @@ function capturePhoto(){
 }
 function finishRun(){
   const pr = me(), tk = todayKey(), list = RUN.show ? RUN.show.results : [RUN.last];
-  const rw = { stickers:0, lines:[], unlocked:[], newBest:false, firstBest:false, challenge:false };
+  const rw = { stickers:0, lines:[], unlocked:[], newBest:false, firstBest:false };
   pr.plays = (pr.plays || 0) + 1;
   if(!pr.stamps[tk]){ pr.stamps[tk] = 1; rw.stickers += 2; rw.lines.push({ ic:'stamp', text:'きょうの スタンプ', n:2 }); }
-  const ch = todayChallenge();
-  if(pr.stamps[tk] !== 2 && list.some(r => r.id === ch.game && ch.ok(r.res))){ pr.stamps[tk] = 2; rw.stickers += 5; rw.challenge = true; rw.lines.push({ ic:'flower', text:'きょうの おだい クリア！', n:5 }); }
   const medals = list.reduce((a, r) => a + r.medal, 0);
   if(medals) { rw.stickers += medals; rw.lines.push({ ic:'medal', text: RUN.show ? 'メダル ぜんぶで' : MEDAL_NAME[list[0].medal] + 'メダル', n:medals }); }
   if(RUN.show){ rw.stickers += 2; rw.lines.push({ ic:'curtain', text:'ショーを さいごまで', n:2 }); }
@@ -2318,10 +3282,10 @@ function finishRun(){
     if(!setPhotos(pr.id, photos)) toast('しゃしんを ほぞん できなかったよ');
   }
   RUN.reward = rw; RUN.phase = 'done';
-  if(rw.challenge) sfx.stamp();
+  sfx.fanfare();
   go('result');
 }
-function quitRun(){ BGM.stop(); RUN = null; go('home'); }
+function quitRun(){ RUN = null; go('home'); }
 function retryRun(){ if(!RUN) return go('home'); if(RUN.show) startShow(); else startProgram(RUN.id); }
 const MEDAL_NAME = ['', 'どう', 'ぎん', 'きん'];
 
@@ -2356,6 +3320,8 @@ const GAME_ICON = {
   balloon:'<svg viewBox="0 0 64 64"><path d="M32 46c-1 6 3 8 1 14" fill="none" stroke="#fbf6ea" stroke-width="2.5"/><ellipse cx="32" cy="26" rx="16" ry="20" fill="#f6b52e" stroke="#fbf6ea" stroke-width="4"/><ellipse cx="26" cy="19" rx="3" ry="6" fill="#fff" opacity=".5"/></svg>',
   run:'<svg viewBox="0 0 64 64"><g stroke="#fbf6ea" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M36 22l-6 16M34 25l10 6M34 25l-11 1M30 38l11 7-2 13M30 38l-9 9-11-2"/></g><g stroke="#f6b52e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M36 22l-6 16M34 25l10 6M34 25l-11 1M30 38l11 7-2 13M30 38l-9 9-11-2"/></g><circle cx="40" cy="13" r="7.5" fill="#f6b52e" stroke="#fbf6ea" stroke-width="3"/><path d="M4 20h10M2 30h12M6 40h8" stroke="#fbf6ea" stroke-width="3.5" stroke-linecap="round"/></svg>',
   dance:'<svg viewBox="0 0 64 64"><path d="M25 44V14l26-6v30" fill="none" stroke="#fbf6ea" stroke-width="9" stroke-linejoin="round"/><path d="M25 44V14l26-6v30" fill="none" stroke="#f6b52e" stroke-width="4.5" stroke-linejoin="round"/><ellipse cx="19" cy="45" rx="9" ry="7" fill="#f6b52e" stroke="#fbf6ea" stroke-width="3.5" transform="rotate(-20 19 45)"/><ellipse cx="45" cy="39" rx="9" ry="7" fill="#f6b52e" stroke="#fbf6ea" stroke-width="3.5" transform="rotate(-20 45 39)"/><path d="M10 14l2 5 5 1-5 2-2 5-2-5-5-2 5-1z" fill="#fbf6ea"/></svg>',
+  fight:'<svg viewBox="0 0 64 64"><path d="M6 22h7M3 32h10M6 42h7" stroke="#fbf6ea" stroke-width="3.5" stroke-linecap="round"/><rect x="16" y="20" width="36" height="28" rx="9" fill="#e5553f" stroke="#fbf6ea" stroke-width="4"/><path d="M42 26v16M34 26v16M26 26v16" stroke="#fbf6ea" stroke-width="3" stroke-linecap="round" opacity=".7"/><ellipse cx="27" cy="20" rx="10" ry="5" fill="#e5553f" stroke="#fbf6ea" stroke-width="3"/></svg>',
+  volley:'<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="22" fill="#fbf6ea" stroke="#fbf6ea" stroke-width="4"/><path d="M32 32L54 32A22 22 0 0 0 43 13Z" fill="#e5553f"/><path d="M32 32L21 13A22 22 0 0 0 10 32Z" fill="#f6b52e"/><path d="M32 32L21 51A22 22 0 0 0 43 51Z" fill="#4cc0c4"/><circle cx="32" cy="32" r="5" fill="#fbf6ea"/></svg>',
   versus:'<svg viewBox="0 0 64 64"><circle cx="22" cy="32" r="16" fill="#e5553f" stroke="#fbf6ea" stroke-width="4"/><circle cx="42" cy="32" r="16" fill="#8d7ad6" stroke="#fbf6ea" stroke-width="4"/><text x="32" y="38" text-anchor="middle" font-family="Mochiy Pop One, sans-serif" font-size="17" fill="#fbf6ea">VS</text></svg>',
 };
 function logoHTML(size){
@@ -2385,16 +3351,11 @@ const SCREENS = {
   },
   home:{
     render(){
-      const pr = me(), ch = todayChallenge(), st = pr.stamps[todayKey()] || 0, nx = nextUnlock(pr);
+      const pr = me(), nx = nextUnlock(pr);
       const tile = (to, label, sub, ic, col, t) => `<button class="tile" data-act="go" data-to="${to}" style="--ic:${col};--tilt:${t}deg"><span class="tile-ic">${ic}</span><b>${label}</b><small>${sub}</small></button>`;
       return `<div class="peek"><span class="peek-cap">${mode === 'camera' ? (camOut.length ? 'カメラで うごいてるよ' : 'カメラの まえに たってね') : 'カメラなしモード'}</span></div>
       <div class="board sheet">
         <div class="board-top">${logoHTML('s')}<button class="chip" data-act="go" data-to="players" style="--pc:${pr.color}"><span class="chip-dot"></span><span>${esc(pr.name)}</span></button></div>
-        <button class="today${st === 2 ? ' is-done' : ''}" data-act="today">
-          <span class="today-tag">きょうの おだい</span>
-          <span class="today-text">${ch.text}</span>
-          <span class="today-state">${st === 2 ? 'クリア！ また あした' : 'クリアで シール 5まい'}</span>
-        </button>
         <button class="btn btn-show tone-shu" data-act="show" style="--tilt:-.8deg">ショーを はじめる<small>3つの えんもくを つづけて あそぶ</small></button>
         <div class="tiles">
           ${tile('programs', 'えんもく', 'ひとつ えらぶ', ICON.ticket, 'var(--mizu)', -1)}
@@ -2410,15 +3371,16 @@ const SCREENS = {
   },
   programs:{
     render(){
-      const pr = me(), ch = todayChallenge();
-      return `<div class="sheet full tape-m">
-        <header class="sheet-head"><button class="back" data-act="go" data-to="home">${ICON.back}もどる</button><h2>えんもくを えらぶ</h2><span class="hint">${mode === 'camera' ? 'てを かざして すこし まつと えらべるよ' : 'クリックか タッチで えらぶ'}</span></header>
-        <div class="ticket-grid">${GAME_ORDER.map((id, i) => { const d = GAMES[id], best = pr.bests[id];
+      const pr = me(); let n = 0;
+      const ticket = id => { const d = GAMES[id], best = pr.bests[id], i = n++;
           return `<button class="tk" data-act="program" data-id="${id}" style="--tc:${d.color};--tilt:${tilt(i)*.6}deg">
             <div class="tk-body"><div class="tk-icon">${GAME_ICON[id]}</div>
               <div class="tk-text"><b>${d.title}</b><span>${d.short}</span></div>
               <div class="tk-stub">${medalHTML(pr.medals[id] || 0)}${d.players === 2 ? '<span class="tag2">2人</span>' : d.pair ? `<span class="tag2">1〜2人</span>${best != null ? `ベスト ${best}` : ''}` : best != null ? `ベスト ${best}` : 'まだ あそんでいない'}</div>
-            </div>${ch.game === id ? '<span class="tk-flag">おだい</span>' : ''}</button>`; }).join('')}</div>
+            </div></button>`; };
+      return `<div class="sheet full tape-m">
+        <header class="sheet-head"><button class="back" data-act="go" data-to="home">${ICON.back}もどる</button><h2>えんもくを えらぶ</h2><span class="hint">${mode === 'camera' ? 'てを かざして すこし まつと えらべるよ' : 'クリックか タッチで えらぶ'}</span></header>
+        <div class="ticket-grid">${GAME_GROUPS.map(gr => `<h3 class="tk-group">${gr.title}</h3>${gr.ids.map(ticket).join('')}`).join('')}</div>
       </div>`;
     },
   },
@@ -2465,7 +3427,7 @@ const SCREENS = {
             <div class="streak"><div><b>${streakOf(pr)}</b><span>れんぞく にち</span></div><div><b>${total}</b><span>あそんだ ひ</span></div><div><b>${pr.stickers}</b><span>シール</span></div></div>
             <div class="cal-head"><h3>${y}ねん ${m+1}がつ</h3><button data-act="cal" data-d="-1" aria-label="まえの つき">‹</button><button data-act="cal" data-d="1" aria-label="つぎの つき">›</button></div>
             <div class="cal">${cells}</div>
-            <div class="legend"><span>「できた」＝ あそんだ ひ（シール 2まい）</span><span>はなまる ＝ きょうの おだい クリア（シール 5まい）</span></div>
+            <div class="legend"><span>「できた」＝ あそんだ ひ（シール 2まい）</span></div>
           </div>
           <div class="rewards"><h3>シールで ふえる きがえ</h3><ul class="rw-list">${list.map(id => `<li><img src="${thumb(id)}" alt=""><span>${COS[id].name}</span>${pr.stickers >= COS[id].cost ? '<span class="own">GET</span>' : `<span class="need">${ICON.sticker}${COS[id].cost}</span>`}</li>`).join('')}</ul></div>
         </div>
@@ -2561,9 +3523,9 @@ const SCREENS = {
         main = `<ul class="prog-list">${list.map(r => `<li><span>${GAMES[r.id].title}</span><span>${r.res.score}てん</span>${medalHTML(r.medal) || '<span></span>'}</li>`).join('')}</ul>
           <div class="score-line"><div class="big-score">${total}<small>てん</small></div></div>`;
       } else if(GAMES[RUN.id].players === 2){
-        const { a, b, unit = '' } = RUN.last.res.stats, w = RUN.last.res.stats.w ?? (a === b ? -1 : a > b ? 0 : 1);
+        const { a, b, unit = '', note } = RUN.last.res.stats, w = RUN.last.res.stats.w ?? (a === b ? -1 : a > b ? 0 : 1);
         const msg = w < 0 ? 'ひきわけ！' : w === 0 ? (mode === 'camera' ? 'ひだりの ひとの かち！' : 'あなたの かち！') : (mode === 'camera' ? 'みぎの ひとの かち！' : 'コンピューターの かち');
-        main = `<div class="score-line"><div class="big-score">${a}<small>${unit} −</small>${b}<small>${unit}</small></div></div><p class="kicker" style="font-size:22px">${msg}</p>`;
+        main = `<div class="score-line"><div class="big-score">${a}<small>${unit} −</small>${b}<small>${unit}</small></div></div><p class="kicker" style="font-size:22px">${msg}</p>${note ? `<p class="best">${note}</p>` : ''}`;
       } else {
         const r = list[0];
         main = `<div class="score-line"><div class="big-score">${r.res.score}<small>てん</small></div>${medalHTML(r.medal, true)}</div>
@@ -2595,6 +3557,7 @@ function go(name){
   s.after && s.after();
   peekEl = ui.querySelector('.peek');
   dwellReset(); setRigs();
+  musicFor(name);
 }
 function confirmBox(msg, yes, onYes){
   const m = document.createElement('div'); m.className = 'modal';
@@ -2609,7 +3572,6 @@ const ACT = {
   demo(){ mode = 'demo'; DB.lastMode = 'demo'; saveDB(); sfx.go(); go('home'); },
   go(d){ go(d.to); },
   show(){ startShow(); },
-  today(){ startProgram(todayChallenge().game); },
   program(d){ startProgram(d.id); },
   swap(d){ if(RUN && RUN.id !== d.id && GAMES[d.id]) startProgram(d.id); },
   costume(d){ const pr = me(), c = COS[d.id]; if(pr.stickers < c.cost){ toast(`シールが ${c.cost}まい に なると きられるよ（いま ${pr.stickers}まい）`); return; } pr.costume = d.id; saveDB(); sfx.pop(); go('dress'); },
@@ -2651,7 +3613,7 @@ const ACT = {
     DB.profiles = DB.profiles.filter(p => p.id !== pr.id); DB.cur = DB.profiles[0].id; saveDB(); loadFace(); go('players'); }); },
   'set-diff'(d){ me().diff = d.v; saveDB(); go('settings'); },
   'set-sfx'(d){ DB.settings.sfx = d.v === 'true'; saveDB(); go('settings'); },
-  'set-bgm'(d){ DB.settings.bgm = d.v === 'true'; saveDB(); go('settings'); },
+  'set-bgm'(d){ DB.settings.bgm = d.v === 'true'; saveDB(); if(DB.settings.bgm) BGM.ensure('menu'); else BGM.stop(); go('settings'); },
   'set-mode'(d){
     if(d.v === 'camera'){ if(mode !== 'camera') startCamera(); }
     else { if(video.srcObject){ try { video.srcObject.getTracks().forEach(t => t.stop()); } catch(e){} video.srcObject = null; } landmarker = null; camOut = []; mode = 'demo'; DB.lastMode = 'demo'; saveDB(); go(view === 'check' ? 'home' : 'settings'); }
@@ -2805,7 +3767,7 @@ function stepRun(dt){
     RUN.countT -= dt;
     const n = Math.ceil(RUN.countT - .5);
     if(n !== RUN.lastCount){ RUN.lastCount = n; if(n >= 1) sfx.tick(); }
-    if(RUN.countT <= 0){ RUN.phase = 'play'; RUN.lostT = 0; sfx.go(); if(d.music) d.music(g); else BGM.start(d.tempo); }
+    if(RUN.countT <= 0){ RUN.phase = 'play'; RUN.lostT = 0; sfx.go(); if(d.music) d.music(g); else BGM.start(d.song || 'menu', { g, step:RUN.musStep || 0 }); RUN.musStep = 0; }
   } else if(RUN.phase === 'play'){
     if(!ok){ RUN.lostT += dt; if(RUN.lostT > 1.2) pauseRun('lost'); return; }
     RUN.lostT = 0; g.t += dt;
@@ -2829,7 +3791,7 @@ function resize(){
   const oldW = W;
   W = Math.round(H*cw/ch);
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
-  const ph = Math.round(Math.min(ch*dpr, 1080));
+  const ph = Math.round(Math.min(ch*dpr, 1080)*QUAL);
   SCALE = ph/H; SHK = SCALE;
   stage.width = Math.round(W*SCALE); stage.height = ph;
   vcan.width = W; vcan.height = H;
@@ -2840,8 +3802,17 @@ window.addEventListener('resize', resize);
 
 /* ---------------- メインループ ---------------- */
 let last = performance.now(), errShown = false;
+/* おもさ たいさく：プレイ中に がめんの こうしんが おそい ときは、えの こまかさを すこし さげる */
+let QUAL = 1, slowT = 0, frAvg = 1/60;
+function perfWatch(raw, dt){
+  if(!(RUN && RUN.phase === 'play') || raw > .5) return;
+  frAvg = lerp(frAvg, raw, .05);
+  if(frAvg > 1/34){ slowT += dt; if(slowT > 3 && QUAL > .6){ QUAL = Math.max(.6, QUAL - .15); slowT = 0; resize(); } }
+  else slowT = Math.max(0, slowT - dt);
+}
 function frame(now){
-  const dt = Math.min(.05, (now - last)/1000); last = now; T += dt;
+  const raw = (now - last)/1000, dt = Math.min(.05, raw); last = now; T += dt;
+  perfWatch(raw, dt);
   try {
     updatePoses(dt, now);
     X = ctx; ctx.setTransform(SCALE, 0, 0, SCALE, 0, 0); ctx.fillStyle = C.aiD; ctx.fillRect(0, 0, W, H);
